@@ -1,13 +1,12 @@
-package com.example.DVDClubbackend;
+package main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DvdClubBackendApplication {
+public class MainApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DvdClubBackendApplication.class, args);
+		SpringApplication.run(MainApplication.class, args);
 	}
-
 }

@@ -1,0 +1,1 @@
+INSERT INTO public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type) VALUES (default, 'Admin', 'Adminic', 'admin@gmail.com', 'asd', '123', '12345', 0, 0);
