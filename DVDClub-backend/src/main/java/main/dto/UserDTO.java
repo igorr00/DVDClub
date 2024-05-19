@@ -1,51 +1,26 @@
-package main.model;
+package main.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import main.model.Gender;
+import main.model.UserType;
 
-@Entity
-public class User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "userId", unique = true, nullable = false)
-	private Long id;
+public class UserDTO {
 	
-	@Column(name = "userName", nullable = false)
 	private String name;
-	
-	@Column(name = "userSurname", nullable = false)
 	private String surname;
-	
-	@Column(name = "userEmail", unique = true, nullable = false)
 	private String email;
-	
-	@Column(name = "userPassword", nullable = false)
 	private String password;
-	
-	@Column(name = "userJmbg", unique = true, nullable = false)
 	private String jmbg;
-	
-	@Column(name = "userPhone", nullable = false)
 	private String phone;
-	
-	@Column(name = "userGender", nullable = false)
 	private Gender gender;
-	
-	@Column(name = "userType", nullable = false)
 	private UserType type;
-
-	public User() {
+	
+	public UserDTO() {
 		super();
 	}
 
-	public User(Long id, String name, String surname, String email, String password, String jmbg, String phone,
-			Gender gender, UserType type) {
+	public UserDTO(String name, String surname, String email, String password, String jmbg, String phone, Gender gender,
+			UserType type) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
@@ -71,7 +46,7 @@ public class User {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
