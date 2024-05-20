@@ -38,8 +38,7 @@ public class UserController {
 		user.setJmbg(userDTO.getJmbg());
 		user.setPhone(userDTO.getPhone());
 		user.setGender(userDTO.getGender());
-		user.setType(UserType.Registered);
-		
+		user.setType(userDTO.getType());		
 		if(userService.register(user)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
