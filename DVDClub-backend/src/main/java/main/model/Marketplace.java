@@ -44,17 +44,24 @@ public class Marketplace {
             inverseJoinColumns = @JoinColumn(name = "dvd_id"))
     private List<Dvd> dvds;
 	
-	/*@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinTable(name = "marketplace_special_offer",
+            joinColumns = @JoinColumn(name = "marketplace_id"),
+            inverseJoinColumns = @JoinColumn(name = "special_offer_id"))
+    private List<SpecialOffer> specialOffers;
+	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name = "marketplace_user",
             joinColumns = @JoinColumn(name = "marketplace_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<UserCustomer> users;*/
+    private List<UserCustomer> users;
 
 	public Marketplace() {
 		super();
 	}
 
-	public Marketplace(Long id, String name, String street, String number, User manager, City city, List<Dvd> dvds) {
+	public Marketplace(Long id, String name, String street, String number, User manager, City city, List<Dvd> dvds,
+			List<SpecialOffer> specialOffers, List<UserCustomer> users) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -63,6 +70,8 @@ public class Marketplace {
 		this.manager = manager;
 		this.city = city;
 		this.dvds = dvds;
+		this.specialOffers = specialOffers;
+		this.users = users;
 	}
 
 	public Long getId() {
@@ -119,5 +128,21 @@ public class Marketplace {
 
 	public void setDvds(List<Dvd> dvds) {
 		this.dvds = dvds;
+	}
+
+	public List<SpecialOffer> getSpecialOffers() {
+		return specialOffers;
+	}
+
+	public void setSpecialOffers(List<SpecialOffer> specialOffers) {
+		this.specialOffers = specialOffers;
+	}
+
+	public List<UserCustomer> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<UserCustomer> users) {
+		this.users = users;
 	}
 }
