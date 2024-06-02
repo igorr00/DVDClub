@@ -30,11 +30,12 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> logIn(@RequestBody UserDTO userDTO){
-		if(userService.login(userDTO)) {
-			return new ResponseEntity<>(HttpStatus.OK);
+	public ResponseEntity<User> logIn(@RequestBody UserDTO userDTO){
+		User loggedInUser = userService.login(userDTO);
+		if(loggedInUser != null) {
+			return new ResponseEntity<>(loggedInUser, HttpStatus.OK);
 		}
-		return new ResponseEntity<>("error", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@PostMapping("/registration")

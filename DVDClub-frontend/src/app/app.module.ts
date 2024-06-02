@@ -27,11 +27,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
 import { UserRegistrationComponent } from './dvdclub/user-registration/user-registration.component';
+import { UserLoginComponent } from './dvdclub/user-login/user-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    UserLoginComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype) values (default, 'Admin', 'Adminic', 'admin@gmail.com', 'asd', '1', '12345', 0, 0, 'UserAdmin');
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype) values (default, 'Sale Menadzer', 'Prvi', 'salesmenprvi@gmail.com', 'asd', '2', '12345', 0, 0, 'UserSalesManager');
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled) values (default, 'Admin', 'Adminic', 'admin@gmail.com', 'asd', '1', '12345', 0, 0, 'UserAdmin', true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled) values (default, 'Sale Menadzer', 'Prvi', 'salesmenprvi@gmail.com', 'asd', '2', '12345', 0, 0, 'UserSalesManager', true);
 
 insert into public.country (country_id, country_name) values (default, 'USA');
 insert into public.country (country_id, country_name) values (default, 'Great Britain');

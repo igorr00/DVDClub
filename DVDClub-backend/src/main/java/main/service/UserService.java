@@ -25,16 +25,16 @@ public class UserService {
 	@Autowired
     private JavaMailSender mailSender;
 	
-	public Boolean login(UserDTO user) {
+	public User login(UserDTO user) {
 		UserCustomer temp = (UserCustomer) userRepository.findByEmail(user.getEmail());
 		if(temp != null) {
-			if(temp.getPassword().equals(temp.getPassword())) {
+			if(temp.getPassword().equals(user.getPassword())){
 				if(temp.isEnabled()) {
-					return true;
+					return temp;
 				}
 			}
 		}
-		return false;
+		return null;
 	}
 	
 	public Boolean register(UserCustomer user) throws MessagingException, UnsupportedEncodingException {
