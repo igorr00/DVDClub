@@ -20,9 +20,6 @@ public class Genre {
 	
 	@Column(name = "genreName", nullable = false)
 	private String name;
-	
-	@ManyToMany(mappedBy = "genres", fetch = FetchType.LAZY)
-    private List<Film> films;
 
 	public Genre() {
 		super();
@@ -49,13 +46,4 @@ public class Genre {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public List<Film> getFilms() {
-		return films;
-	}
-
-	public void setFilms(List<Film> films) {
-		this.films = films;
-	}
-	
 }

@@ -30,9 +30,6 @@ public class Actor {
 	
 	@ManyToOne(targetEntity = Country.class, fetch = FetchType.EAGER)
     private Country country;
-	
-	@ManyToMany(mappedBy = "actors", fetch = FetchType.LAZY)
-    private List<Film> films;
 
 	public Actor() {
 		super();
@@ -85,13 +82,5 @@ public class Actor {
 
 	public void setCountry(Country country) {
 		this.country = country;
-	}
-
-	public List<Film> getFilms() {
-		return films;
-	}
-
-	public void setFilms(List<Film> films) {
-		this.films = films;
 	}
 }

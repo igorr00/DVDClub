@@ -7,5 +7,6 @@ import main.model.Country;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
-
+	
+	Country findByName (String name);
 }
