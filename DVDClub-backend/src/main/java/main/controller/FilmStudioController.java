@@ -16,29 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import main.dto.ActorDTO;
-import main.model.Actor;
-import main.service.ActorService;
+import main.dto.FilmStudioDTO;
+import main.model.FilmStudio;
+import main.service.FilmStudioService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value = "actor")
-public class ActorController {
-
+@RequestMapping(value = "filmStudio")
+public class FilmStudioController {
+	
 	@Autowired
-	private ActorService actorService;
+	private FilmStudioService filmStudioService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Actor> add(@RequestBody ActorDTO dto) throws MessagingException, UnsupportedEncodingException {
+	public ResponseEntity<FilmStudio> add(@RequestBody FilmStudioDTO dto) throws MessagingException, UnsupportedEncodingException {
 		
-		if(actorService.add(dto)) {
+		if(filmStudioService.add(dto)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@GetMapping("/getAll")
-    public @ResponseBody ArrayList<Actor> getAll(){
-		return actorService.findAll();
+    public @ResponseBody ArrayList<FilmStudio> getAll(){
+		return filmStudioService.findAll();
 	}
 }

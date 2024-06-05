@@ -32,9 +32,6 @@ public class Marketplace {
 	@Column(name = "marketplaceNumber", nullable = false)
 	private String number;
 	
-	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    private User manager;
-	
 	@ManyToOne(targetEntity = City.class, fetch = FetchType.EAGER)
     private City city;
 	
@@ -60,14 +57,13 @@ public class Marketplace {
 		super();
 	}
 
-	public Marketplace(Long id, String name, String street, String number, User manager, City city, List<Dvd> dvds,
+	public Marketplace(Long id, String name, String street, String number, City city, List<Dvd> dvds,
 			List<SpecialOffer> specialOffers, List<UserCustomer> users) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.street = street;
 		this.number = number;
-		this.manager = manager;
 		this.city = city;
 		this.dvds = dvds;
 		this.specialOffers = specialOffers;
@@ -105,15 +101,7 @@ public class Marketplace {
 	public void setNumber(String number) {
 		this.number = number;
 	}
-
-	public User getManager() {
-		return manager;
-	}
-
-	public void setManager(User manager) {
-		this.manager = manager;
-	}
-
+	
 	public City getCity() {
 		return city;
 	}

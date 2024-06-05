@@ -49,18 +49,26 @@ public class Film {
             joinColumns = @JoinColumn(name = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
     private List<Actor> actors;
+	
+	@Column(name = "filmImage", nullable = false)
+	private String image;
 
 	public Film() {
 		super();
 	}
 
-	public Film(Long id, String name, int year, Country country, List<Genre> genres) {
+	public Film(Long id, String name, int year, Country country, FilmStudio filmStudio,
+			List<Genre> genres, Director director, List<Actor> actors, String image) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.year = year;
 		this.country = country;
+		this.filmStudio = filmStudio;
 		this.genres = genres;
+		this.director = director;
+		this.actors = actors;
+		this.image = image;
 	}
 
 	public Long getId() {
@@ -109,6 +117,30 @@ public class Film {
 
 	public void setGenres(List<Genre> genres) {
 		this.genres = genres;
+	}
+
+	public Director getDirector() {
+		return director;
+	}
+
+	public void setDirector(Director director) {
+		this.director = director;
+	}
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 }

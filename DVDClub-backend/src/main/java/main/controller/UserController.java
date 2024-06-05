@@ -39,7 +39,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/registration")
-	public ResponseEntity<User> saveUser(@RequestBody UserDTO userDTO) throws MessagingException, UnsupportedEncodingException {
+	public ResponseEntity<User> register(@RequestBody UserDTO userDTO) throws MessagingException, UnsupportedEncodingException {
 
 		UserCustomer user = new UserCustomer();
 		

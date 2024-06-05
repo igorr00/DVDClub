@@ -29,7 +29,7 @@ public class DvdController {
 	private DvdService dvdService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Dvd> addDvd(@RequestBody DvdDTO dto) throws MessagingException, UnsupportedEncodingException {
+	public ResponseEntity<Dvd> add(@RequestBody DvdDTO dto) throws MessagingException, UnsupportedEncodingException {
 		
 		if(dvdService.add(dto)) {
 			return new ResponseEntity<>(HttpStatus.OK);

@@ -16,6 +16,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/user/**").permitAll();
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/actor/**").permitAll();
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/director/**").permitAll();
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/filmStudio/**").permitAll();
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/film/**").permitAll();
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/marketplace/**").permitAll();
 	}
 	
 }

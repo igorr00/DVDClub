@@ -16,29 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import main.dto.ActorDTO;
-import main.model.Actor;
-import main.service.ActorService;
+import main.dto.MarketplaceDTO;
+import main.model.Marketplace;
+import main.service.MarketplaceService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value = "actor")
-public class ActorController {
+@RequestMapping(value = "marketplace")
+public class MarketplaceController {
 
 	@Autowired
-	private ActorService actorService;
+	private MarketplaceService marketplaceService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Actor> add(@RequestBody ActorDTO dto) throws MessagingException, UnsupportedEncodingException {
+	public ResponseEntity<Marketplace> add(@RequestBody MarketplaceDTO dto) throws MessagingException, UnsupportedEncodingException {
 		
-		if(actorService.add(dto)) {
+		if(marketplaceService.add(dto)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@GetMapping("/getAll")
-    public @ResponseBody ArrayList<Actor> getAll(){
-		return actorService.findAll();
+    public @ResponseBody ArrayList<Marketplace> getAll(){
+		return marketplaceService.findAll();
 	}
 }

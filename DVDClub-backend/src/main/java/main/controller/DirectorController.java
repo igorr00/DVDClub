@@ -29,7 +29,7 @@ public class DirectorController {
 	private DirectorService directorService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Director> addDirector(@RequestBody DirectorDTO dto) throws MessagingException, UnsupportedEncodingException {
+	public ResponseEntity<Director> add(@RequestBody DirectorDTO dto) throws MessagingException, UnsupportedEncodingException {
 		
 		if(directorService.add(dto)) {
 			return new ResponseEntity<>(HttpStatus.OK);
