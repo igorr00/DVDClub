@@ -25,15 +25,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav'
 
 import { UserRegistrationComponent } from './dvdclub/user-registration/user-registration.component';
 import { UserLoginComponent } from './dvdclub/user-login/user-login.component';
+import { AdminPageComponent } from './dvdclub/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    AdminPageComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +65,9 @@ import { UserLoginComponent } from './dvdclub/user-login/user-login.component';
     MatPaginatorModule,
     MatDividerModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatGridListModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

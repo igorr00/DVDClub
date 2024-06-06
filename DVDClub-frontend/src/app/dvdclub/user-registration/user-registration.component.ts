@@ -32,7 +32,7 @@ export class UserRegistrationComponent implements OnInit {
     this.userRegistrationService.register(this.userDTO).subscribe(
       {
         next: (res) => {
-          this.router.navigate(['']);
+          this.router.navigate(['user-login']);
           this.showSuccess();
         },
         error: (e) => {this.showError('Something went wrong', 'DVD Club');

@@ -1,0 +1,14 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <button class="menubutton" type="button" mat-button>Actors</button><br>
+        <button class="menubutton" type="button" mat-button>Directors</button><br>
+        <button class="menubutton" type="button" mat-button>FilmStudios</button><br>
+        <button class="menubutton" type="button" mat-button>Films</button><br>
+        <button class="menubutton" type="button" mat-button>Marketplaces</button><br>
+        <button class="menubutton" type="button" mat-button>Managers</button>
+</mat-drawer>
+<mat-drawer-content>
+    <button type="button" mat-button (click)="drawer.toggle()">Menu</button>
+    <p style="font-size: xx-large; text-align:center"><b>Welcome</b></p>
+</mat-drawer-content>
+</mat-drawer-container>
