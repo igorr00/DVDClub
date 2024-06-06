@@ -26,7 +26,7 @@ public class UserService {
     private JavaMailSender mailSender;
 	
 	public User login(UserDTO user) {
-		UserCustomer temp = (UserCustomer) userRepository.findByEmail(user.getEmail());
+		User temp = userRepository.findByEmail(user.getEmail());
 		if(temp != null) {
 			if(temp.getPassword().equals(user.getPassword())){
 				if(temp.isEnabled()) {
@@ -53,14 +53,14 @@ public class UserService {
 	
 	public void sendVerificationEmail(UserCustomer user) throws MessagingException, UnsupportedEncodingException {
 	    String toAddress = user.getEmail();
-	    String fromAddress = "ISA-Email";
-	    String senderName = "FTN";
+	    String fromAddress = "Dvd-Email";
+	    String senderName = "DVDCLUB";
 	    String subject = "Please verify your registration";
 	    String content = "Dear [[name]],<br>"
 	            + "Please click the link below to verify your registration:<br>"
 	            + "<h3><a href=\"[[URL]]\" target=\"_self\">VERIFY</a></h3>"
 	            + "Thank you,<br>"
-	            + "FTN.";
+	            + "DVDCLUB.";
 	     
 	    MimeMessage message = mailSender.createMimeMessage();
 	    MimeMessageHelper helper = new MimeMessageHelper(message);

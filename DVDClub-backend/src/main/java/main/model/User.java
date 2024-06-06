@@ -37,6 +37,8 @@ public class User {
 	
 	@Column(name = "userType", nullable = false)
 	private UserType type;
+	
+	private boolean enabled;
 
 	public User() {
 		super();
@@ -126,5 +128,13 @@ public class User {
 
 	public void setType(UserType type) {
 		this.type = type;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 }
