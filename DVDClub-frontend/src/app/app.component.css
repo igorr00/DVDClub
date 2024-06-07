@@ -14,7 +14,7 @@ ul {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 22px 16px;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
   }
@@ -30,4 +30,17 @@ ul {
   
   .router-outlet {
     margin: 2%;
+  }
+
+  #nav-login {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 22px 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+  }
+
+  #nav-login:hover {
+    background-color: #111;
   }

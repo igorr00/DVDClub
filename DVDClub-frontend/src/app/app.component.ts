@@ -7,8 +7,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'DVDClub-frontend';
+  loggedUserRole = localStorage.getItem('loggedUserRole');
 
   constructor(private router: Router) {
+  }
+
+  logout(){
+    localStorage.setItem('loggedUserRole', '');
+    window.location.href="user-login";
   }
 }

@@ -1,25 +1,13 @@
-mat-grid-list {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+mat-card {
+    max-width: 550px; 
+    text-align: center;
+    text-size-adjust: auto;
+    margin-top: 2%;
+    margin-left: 12px;
+  
 }
-
-mat-grid-tile {
-    background-color: #04AA6D;
-    color: white;
-    font-size: x-large;
-}
-
-mat-grid-tile:hover {
-    background-color: black;
-}
-mat-drawer-container {
-    width: auto;
-    height: 50rem;
-}
-
-.menubutton {
-    text-align: left;
-    width: 100%;
-    font-size: large;
+.content {
+  margin-left: auto;
+  margin-right: auto; 
+  width: 100%; 
 }

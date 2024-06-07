@@ -15,7 +15,6 @@ export class UserLoginComponent implements OnInit {
   constructor(private userLoginService: UserLoginService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    //localStorage.setItem('loggedUserRole', '');
   }
 
   login(){
