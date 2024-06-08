@@ -22,11 +22,11 @@ export class UserRegistrationComponent implements OnInit {
     console.log(this.userDTO)
     if(this.userDTO.name == "" || this.userDTO.surname == "" || this.userDTO.email == "" || this.userDTO.password == "" || this.userDTO.jmbg == "" ||
        this.userDTO.phone == ""){
-        this.showError('Fill out all fields.', 'Clinic application');
+        this.showError('Fill out all fields.', 'DVD Club');
         return;   
       }
       if(this.userDTO.password != this.confirmPassword){
-        this.showError('Passwords don\'t match.', 'Clinic application');
+        this.showError('Passwords don\'t match.', 'DVD Club');
         return;   
       }
     this.userRegistrationService.register(this.userDTO).subscribe(

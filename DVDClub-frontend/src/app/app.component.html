@@ -1,14 +1,15 @@
 <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
   <div class="container">
       <ul class="nav navbar-nav" routerLinkActive="active">
-        <li class="nav-item"><h3 style="color: white;"><b>DVDClub</b></h3></li>
-        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Actors</a></li>
-        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Directors</a></li>
-        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">FilmStudios</a></li>
+        <li class="nav-item"><h3 style="color: white; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"><b>DVDClub</b></h3></li>
+        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="actors">Actors</a></li>
+        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="directors">Directors</a></li>
+        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="filmstudios">FilmStudios</a></li>
         <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Films</a></li>
-        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Marketplaces</a></li>
+        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="marketplaces">Marketplaces</a></li>
         <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Managers</a></li>
-        <li id="nav-login"(click)="logout()">Login</li>
+        <li *ngIf="loggedUserRole === ''" id="nav-login"(click)="logout()">Login</li>
+        <li *ngIf="loggedUserRole !== ''" id="nav-login"(click)="logout()">Logout</li>
       </ul>
   </div>
 </nav>

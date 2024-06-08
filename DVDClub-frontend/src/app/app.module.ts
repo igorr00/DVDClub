@@ -31,13 +31,29 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { UserRegistrationComponent } from './dvdclub/user-registration/user-registration.component';
 import { UserLoginComponent } from './dvdclub/user-login/user-login.component';
 import { AdminPageComponent } from './dvdclub/admin-page/admin-page.component';
+import { ActorsComponent } from './dvdclub/actors/actors.component';
+import { ActorAddComponent } from './dvdclub/actor-add/actor-add.component';
+import { DirectorsComponent } from './dvdclub/directors/directors.component';
+import { DirectorAddComponent } from './dvdclub/director-add/director-add.component';
+import { FilmstudiosComponent } from './dvdclub/filmstudios/filmstudios.component';
+import { FilmstudioAddComponent } from './dvdclub/filmstudio-add/filmstudio-add.component';
+import { MarketplacesComponent } from './dvdclub/marketplaces/marketplaces.component';
+import { MarketplaceAddComponent } from './dvdclub/marketplace-add/marketplace-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationComponent,
     UserLoginComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    ActorsComponent,
+    ActorAddComponent,
+    DirectorsComponent,
+    DirectorAddComponent,
+    FilmstudiosComponent,
+    FilmstudioAddComponent,
+    MarketplacesComponent,
+    MarketplaceAddComponent
   ],
   imports: [
     CommonModule,
