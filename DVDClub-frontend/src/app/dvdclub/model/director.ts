@@ -1,11 +1,17 @@
 import { Country } from "./country";
 
 export class Director{
-    constructor(
-        public id: number = 0,
-        public name: string = '',
-        public surname: string = '',
-        public age: number = 0,
-        public country: Country
-    ) {}
+    id: number;
+    name: string;
+    surname: string;
+    age: number;
+    country: Country;
+
+    constructor(){
+        this.id = 0;
+        this.name = '';
+        this.surname = '';
+        this.age = 0;
+        this.country = new Country();
+    }
 }

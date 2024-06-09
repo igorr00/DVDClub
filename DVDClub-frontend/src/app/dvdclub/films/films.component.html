@@ -1,0 +1,53 @@
+<mat-card fxFlex class="content">
+    <mat-card-title>
+        <h2>Film</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <button mat-flat-button (click)="add()">Add</button>
+        <!--<form>
+            <mat-label>Search parameters:</mat-label>
+            <div></div>
+            <mat-label>Name:</mat-label>
+            <input matInput name="name" [(ngModel)]="name">
+            <mat-label>Address:</mat-label>
+            <input matInput name="address" [(ngModel)]="address">
+            <mat-label>Min. avg. grade:</mat-label>
+            <input matInput name="grade" [(ngModel)]="grade">
+            <div></div>
+            <button (click)="Search()">Search</button>
+            <div></div>
+        </form>
+        <button mat-flat-button (click)="sortByName()">Sort by name</button>
+        <button mat-flat-button (click)="sortByGrade()">Sort by grade</button>-->
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef class="cell"></th>
+                <td mat-cell *matCellDef="let film" class="cell"><img src={{film.image}} width="70rem" height="100rem"></td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Name </th>
+                <td mat-cell *matCellDef="let film" class="cell">{{film.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Year </th>
+                <td mat-cell *matCellDef="let film" class="cell">{{film.year}}</td>
+            </ng-container>
+            <ng-container matColumnDef="director">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Director </th>
+                <td mat-cell *matCellDef="let film" class="cell">{{film.director.name}} {{film.director.surname}}</td>
+            </ng-container>
+            <ng-container matColumnDef="country">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Country </th>
+                <td mat-cell *matCellDef="let film" class="cell">{{film.country.name}}</td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef class="cell"></th>
+                <td mat-cell *matCellDef="let film" class="cell">
+                    <button class="editButton" mat-raised-button (click)="edit(film.id)">Edit</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

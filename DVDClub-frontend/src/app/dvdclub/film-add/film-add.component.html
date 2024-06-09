@@ -1,0 +1,61 @@
+<mat-card elevation="5" fxFlex class="content">
+    <mat-card-title>
+        <h2>Add Film</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p></p>
+        <form>
+            <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter film's name" name="name" type="text" [(ngModel)]="filmDTO.name">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Year</mat-label>
+                        <input matInput placeholder="Enter film's year" name="year" type="number" [(ngModel)]="filmDTO.year">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Enter film's country" value="" name="country" type="text" [(ngModel)]="filmDTO.country">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Director</mat-label>
+                        <mat-select name="director" [(ngModel)]="filmDTO.director" required>
+                            <mat-option *ngFor="let option of directors" [value]="option">{{option.name}} {{option.surname}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Actors</mat-label>
+                        <mat-select name="actors" [(ngModel)]="filmDTO.actors" required multiple>
+                            <mat-option *ngFor="let option of actors" [value]="option">{{option.name}} {{option.surname}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Genres</mat-label>
+                        <mat-select name="genres" [(ngModel)]="filmDTO.genres" required multiple>
+                            <mat-option *ngFor="let option of genres" [value]="option">{{option.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Film Studio</mat-label>
+                        <mat-select name="filmStudio" [(ngModel)]="filmDTO.filmStudio" required>
+                            <mat-option *ngFor="let option of filmstudios" [value]="option">{{ option.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Image</mat-label>
+                        <input matInput placeholder="Enter film's image link" value="" name="image" type="text" [(ngModel)]="filmDTO.image">
+                    </mat-form-field>
+            </div>
+
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button>
+        </form>
+    </mat-card-content>
+</mat-card>

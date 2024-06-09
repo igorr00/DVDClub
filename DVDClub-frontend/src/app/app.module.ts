@@ -39,6 +39,8 @@ import { FilmstudiosComponent } from './dvdclub/filmstudios/filmstudios.componen
 import { FilmstudioAddComponent } from './dvdclub/filmstudio-add/filmstudio-add.component';
 import { MarketplacesComponent } from './dvdclub/marketplaces/marketplaces.component';
 import { MarketplaceAddComponent } from './dvdclub/marketplace-add/marketplace-add.component';
+import { FilmsComponent } from './dvdclub/films/films.component';
+import { FilmAddComponent } from './dvdclub/film-add/film-add.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { MarketplaceAddComponent } from './dvdclub/marketplace-add/marketplace-a
     FilmstudiosComponent,
     FilmstudioAddComponent,
     MarketplacesComponent,
-    MarketplaceAddComponent
+    MarketplaceAddComponent,
+    FilmsComponent,
+    FilmAddComponent
   ],
   imports: [
     CommonModule,

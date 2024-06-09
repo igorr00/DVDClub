@@ -5,9 +5,9 @@
         <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="actors">Actors</a></li>
         <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="directors">Directors</a></li>
         <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="filmstudios">FilmStudios</a></li>
-        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Films</a></li>
+        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="films">Films</a></li>
         <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="marketplaces">Marketplaces</a></li>
-        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="">Managers</a></li>
+        <li *ngIf="loggedUserRole === 'Admin'" class="nav-item"><a class="nav-link" routerLink="managers">Managers</a></li>
         <li *ngIf="loggedUserRole === ''" id="nav-login"(click)="logout()">Login</li>
         <li *ngIf="loggedUserRole !== ''" id="nav-login"(click)="logout()">Logout</li>
       </ul>
