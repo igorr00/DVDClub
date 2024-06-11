@@ -4,6 +4,7 @@ export class MarketplaceDTO{
         public street: string = '',
         public number: string = '',
         public city: string = '',
-        public country: string = ''
+        public country: string = '',
+        public manager: string = ''
     ) {}
 }

@@ -41,6 +41,8 @@ import { MarketplacesComponent } from './dvdclub/marketplaces/marketplaces.compo
 import { MarketplaceAddComponent } from './dvdclub/marketplace-add/marketplace-add.component';
 import { FilmsComponent } from './dvdclub/films/films.component';
 import { FilmAddComponent } from './dvdclub/film-add/film-add.component';
+import { ManagersComponent } from './dvdclub/managers/managers.component';
+import { ManagerAddComponent } from './dvdclub/manager-add/manager-add.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { FilmAddComponent } from './dvdclub/film-add/film-add.component';
     MarketplacesComponent,
     MarketplaceAddComponent,
     FilmsComponent,
-    FilmAddComponent
+    FilmAddComponent,
+    ManagersComponent,
+    ManagerAddComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,6 @@
 insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled) values (default, 'Admin', 'Adminic', 'admin@gmail.com', 'asd', '1', '12345', 0, 0, 'UserAdmin', true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled) values (default, 'Sale Menadzer', 'Prvi', 'salesmenprvi@gmail.com', 'asd', '2', '12345', 0, 2, 'UserSalesManager', true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled) values (default, 'Sale Menadzer', 'Drugi', 'salesmendrugi@gmail.com', 'asd', '3', '12345', 0, 2, 'UserSalesManager', true);
 
 insert into public.country (country_id, country_name) values (default, 'USA');
 insert into public.country (country_id, country_name) values (default, 'Great Britain');
@@ -49,10 +51,7 @@ insert into public.film_actor (film_id, actor_id) values (1, 1), (1,2), (1,3);
 insert into public.city (city_id, city_name, country_country_id) values (default, 'Novi Sad', 3);
 insert into public.city (city_id, city_name, country_country_id) values (default, 'Beograd', 3);
 
-insert into public.marketplace (marketplace_id, marketplace_name, marketplace_street, marketplace_number, city_city_id) values (default, 'Marketplace 021', 'Bulevar Oslobodjenja', '44', 1);
-
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled, marketplace_marketplace_id) values (default, 'Sale Menadzer', 'Prvi', 'salesmenprvi@gmail.com', 'asd', '2', '12345', 0, 2, 'UserSalesManager', true, 1);
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, dtype, enabled, marketplace_marketplace_id) values (default, 'Sale Menadzer', 'Drugi', 'salesmendrugi@gmail.com', 'asd', '3', '12345', 0, 2, 'UserSalesManager', true, null);
+insert into public.marketplace (marketplace_id, marketplace_name, marketplace_street, marketplace_number, city_city_id, manager_user_id) values (default, 'Marketplace 021', 'Bulevar Oslobodjenja', '44', 1, 2);
 
 insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id) values (default, '1080p Blu-Ray', 3000, 1000, 1);
 insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id) values (default, '1080p Blu-Ray', 3000, 1000, 1);

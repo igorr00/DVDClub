@@ -1,6 +1,6 @@
 <mat-card elevation="5" fxFlex class="content">
     <mat-card-title>
-        <h2>Registration</h2>
+        <h2>Manager Add</h2>
     </mat-card-title>
     <mat-card-content>
         <p></p>
@@ -46,6 +46,14 @@
                         <mat-select name="gender" [(ngModel)]="userDTO.gender" matNativeControl>
                             <mat-option [value]="0">Male</mat-option>
                             <mat-option [value]="1">Female</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Type</mat-label>
+                        <mat-select name="gender" [(ngModel)]="userDTO.type" matNativeControl>
+                            <mat-option [value]="2">Sales Manager</mat-option>
+                            <mat-option [value]="3">Marketing Manager</mat-option>
                         </mat-select>
                     </mat-form-field>
             </div>

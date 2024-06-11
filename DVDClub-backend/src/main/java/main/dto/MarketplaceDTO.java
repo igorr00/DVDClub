@@ -7,6 +7,7 @@ public class MarketplaceDTO {
 	private String number;
 	private String city;
 	private String country;
+	private String manager;
 	
 	public MarketplaceDTO() {
 		super();
@@ -50,6 +51,14 @@ public class MarketplaceDTO {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getManager() {
+		return manager;
+	}
+
+	public void setManagerId(String manager) {
+		this.manager = manager;
 	}
 	
 }

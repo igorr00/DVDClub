@@ -30,6 +30,13 @@
                         <mat-label>Country</mat-label>
                         <input matInput placeholder="Enter marketplace's country" value="" name="country" type="text" [(ngModel)]="marketplaceDTO.country">
                     </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Manager</mat-label>
+                        <mat-select name="manager" [(ngModel)]="marketplaceDTO.manager" required>
+                            <mat-option *ngFor="let option of managers" [value]="option.email">{{option.name}} {{option.surname}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
             </div>
 
             <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button>

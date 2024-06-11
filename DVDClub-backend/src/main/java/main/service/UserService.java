@@ -1,6 +1,7 @@
 package main.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -11,8 +12,11 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import main.dto.UserDTO;
+import main.model.Marketplace;
 import main.model.User;
+import main.model.UserType;
 import main.model.UserCustomer;
+import main.repository.MarketplaceRepository;
 import main.repository.UserRepository;
 import net.bytebuddy.utility.RandomString;
 
@@ -21,6 +25,9 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private MarketplaceRepository marketplaceRepository;
 	
 	@Autowired
     private JavaMailSender mailSender;
@@ -92,5 +99,55 @@ public class UserService {
 	        return true;
 	    }
 	     
+	}
+	
+	public ArrayList<User> findAllManagers(){
+        ArrayList<User> users = new ArrayList<User>();
+        for (User u: userRepository.findAll()) {
+        	if(u.getType().equals(UserType.MarketingManager) || u.getType().equals(UserType.SalesManager)){
+        		users.add(u);
+        	}
+        }
+        return users;
+    }
+	
+	public ArrayList<User> findAllFreeManagers(){
+        ArrayList<User> users = new ArrayList<User>();
+        for (User u: userRepository.findAll()) {
+        	if(u.getType().equals(UserType.SalesManager)){
+        		users.add(u);
+        	}
+        }
+        
+        ArrayList<User> managing = new ArrayList<User>();
+        for (Marketplace m: marketplaceRepository.findAll()) {
+        	managing.add(m.getManager());
+        }
+        
+        users.removeAll(managing);
+        
+        return users;
+    }
+	
+	public Boolean add(UserDTO dto) {
+		User userTemp = userRepository.findByEmail(dto.getEmail());
+		if(userTemp != null) {
+			return false;
+		}
+		
+		User user = new User();
+		user.setName(dto.getName());
+		user.setSurname(dto.getSurname());
+		user.setEmail(dto.getEmail());
+		user.setPassword(dto.getPassword());
+		user.setJmbg(dto.getJmbg());
+		user.setPhone(dto.getPhone());
+		user.setGender(dto.getGender());
+		user.setType(dto.getType());
+		user.setEnabled(true);
+		
+		userRepository.save(user);
+		
+		return true;
 	}
 }

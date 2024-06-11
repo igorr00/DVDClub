@@ -1,6 +1,7 @@
 import { City } from "./city";
 import { Dvd } from "./dvd";
 import { SpecialOffer } from "./specialoffer";
+import { User } from "./user";
 
 export class Marketplace{
     constructor(
@@ -10,6 +11,8 @@ export class Marketplace{
         public number: string = '',
         public city: City,
         public dvds: Dvd[] = [],
-        public specialOffers: SpecialOffer[] = []
+        public specialOffers: SpecialOffer[] = [],
+        public users: User[] = [],
+        public manager: User
     ) {}
 }

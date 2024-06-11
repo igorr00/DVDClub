@@ -14,6 +14,8 @@ import { MarketplacesComponent } from './dvdclub/marketplaces/marketplaces.compo
 import { MarketplaceAddComponent } from './dvdclub/marketplace-add/marketplace-add.component';
 import { FilmsComponent } from './dvdclub/films/films.component';
 import { FilmAddComponent } from './dvdclub/film-add/film-add.component';
+import { ManagersComponent } from './dvdclub/managers/managers.component';
+import { ManagerAddComponent } from './dvdclub/manager-add/manager-add.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -28,7 +30,9 @@ const routes: Routes = [
   { path: 'marketplaces', component: MarketplacesComponent },
   { path: 'marketplace-add', component: MarketplaceAddComponent },
   { path: 'films', component: FilmsComponent },
-  { path: 'film-add', component: FilmAddComponent }
+  { path: 'film-add', component: FilmAddComponent },
+  { path: 'managers', component: ManagersComponent },
+  { path: 'manager-add', component: ManagerAddComponent }
 ];
 
 @NgModule({

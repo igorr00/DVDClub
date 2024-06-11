@@ -10,6 +10,7 @@ import main.model.Marketplace;
 import main.model.City;
 import main.model.Country;
 import main.repository.MarketplaceRepository;
+import main.repository.UserRepository;
 import main.repository.CountryRepository;
 import main.repository.CityRepository;
 
@@ -24,6 +25,9 @@ public class MarketplaceService {
 	
 	@Autowired
 	private CityRepository cityRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	public Boolean add(MarketplaceDTO dto) {
 		for(Marketplace m: marketplaceRepository.findAll()) {
@@ -57,6 +61,7 @@ public class MarketplaceService {
 		city.setCountry(country);
 		cityRepository.save(city);
 		marketplace.setCity(city);
+		marketplace.setManager(userRepository.findByEmail(dto.getManager()));
 		marketplaceRepository.save(marketplace);
 		return true;
 	}

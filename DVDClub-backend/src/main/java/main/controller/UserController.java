@@ -1,6 +1,7 @@
 package main.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.mail.MessagingException;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import main.dto.UserDTO;
@@ -64,5 +66,24 @@ public class UserController {
 	    } else {
 	        return "verify_fail";
 	    }
+	}
+	
+	@PostMapping("/add")
+	public ResponseEntity<User> add(@RequestBody UserDTO dto) throws MessagingException, UnsupportedEncodingException {
+		
+		if(userService.add(dto)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping("/getAllManagers")
+    public @ResponseBody ArrayList<User> getAllManagers(){
+		return userService.findAllManagers();
+	}
+	
+	@GetMapping("/getAllFreeManagers")
+    public @ResponseBody ArrayList<User> getAllFreeManagers(){
+		return userService.findAllFreeManagers();
 	}
 }
