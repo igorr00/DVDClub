@@ -1,6 +1,7 @@
 package main.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,4 +74,24 @@ public class MarketplaceService {
         }
         return marketplaces;
     }
+	
+	public Boolean edit(Marketplace marketplace)
+	{
+		Optional<Marketplace> toEdit = marketplaceRepository.findById(marketplace.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		marketplaceRepository.save(marketplace);
+		return true;
+	}
+	
+	public Marketplace findById(Long id) {
+		return marketplaceRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		marketplaceRepository.deleteById(id);
+	}
 }

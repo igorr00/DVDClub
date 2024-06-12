@@ -2,6 +2,7 @@ package main.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -149,5 +150,25 @@ public class UserService {
 		userRepository.save(user);
 		
 		return true;
+	}
+	
+	public Boolean edit(User user)
+	{
+		Optional<User> toEdit = userRepository.findById(user.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		userRepository.save(user);
+		return true;
+	}
+	
+	public User findById(Long id) {
+		return userRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		userRepository.deleteById(id);
 	}
 }

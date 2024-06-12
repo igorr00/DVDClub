@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,5 +42,20 @@ public class DvdController {
 	@GetMapping("/getAll")
     public @ResponseBody ArrayList<Dvd> getAll(){
 		return dvdService.findAll();
+	}
+	
+	@PostMapping("/edit")
+    public @ResponseBody Boolean edit(@RequestBody Dvd dvd){
+		return dvdService.edit(dvd);	
+	}
+	
+	@GetMapping("/getById")
+    public @ResponseBody Dvd getById(@Param("id") Long id){
+		return dvdService.findById(id);
+	}
+	
+	@DeleteMapping("/delete")
+	public @ResponseBody void delete(@Param("id") Long id){
+		dvdService.delete(id);
 	}
 }

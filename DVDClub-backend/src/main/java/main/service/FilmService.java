@@ -72,4 +72,24 @@ public class FilmService {
         }
         return films;
     }
+	
+	public Boolean edit(Film film)
+	{
+		Optional<Film> toEdit = filmRepository.findById(film.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		filmRepository.save(film);
+		return true;
+	}
+	
+	public Film findById(Long id) {
+		return filmRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		filmRepository.deleteById(id);
+	}
 }

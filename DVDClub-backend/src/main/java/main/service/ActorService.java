@@ -1,6 +1,7 @@
 package main.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,4 +46,24 @@ public class ActorService {
         }
         return actors;
     }
+	
+	public Boolean edit(Actor actor)
+	{
+		Optional<Actor> toEdit = actorRepository.findById(actor.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		actorRepository.save(actor);
+		return true;
+	}
+	
+	public Actor findById(Long id) {
+		return actorRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		actorRepository.deleteById(id);
+	}
 }

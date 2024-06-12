@@ -12,7 +12,7 @@ import { UsersService } from '../services/users.service';
 export class ManagersComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<User>();
-  public displayedColumns = ['name', 'surname', 'email', 'type', 'edit'];
+  public displayedColumns = ['name', 'surname', 'email', 'type'];
   public managers: User[] = [];
 
   constructor(private router:Router, private usersService: UsersService) { }

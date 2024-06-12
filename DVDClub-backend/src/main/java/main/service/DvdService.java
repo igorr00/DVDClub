@@ -42,4 +42,24 @@ public class DvdService {
         }
         return dvds;
     }
+	
+	public Boolean edit(Dvd dvd)
+	{
+		Optional<Dvd> toEdit = dvdRepository.findById(dvd.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		dvdRepository.save(dvd);
+		return true;
+	}
+	
+	public Dvd findById(Long id) {
+		return dvdRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		dvdRepository.deleteById(id);
+	}
 }

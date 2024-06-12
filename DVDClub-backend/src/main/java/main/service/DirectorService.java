@@ -1,6 +1,7 @@
 package main.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,4 +46,24 @@ public class DirectorService {
         }
         return directors;
     }
+	
+	public Boolean edit(Director director)
+	{
+		Optional<Director> toEdit = directorRepository.findById(director.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		directorRepository.save(director);
+		return true;
+	}
+	
+	public Director findById(Long id) {
+		return directorRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		directorRepository.deleteById(id);
+	}
 }

@@ -1,6 +1,7 @@
 package main.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,4 +44,24 @@ public class FilmStudioService {
         }
         return filmStudios;
     }
+	
+	public Boolean edit(FilmStudio filmStudio)
+	{
+		Optional<FilmStudio> toEdit = filmStudioRepository.findById(filmStudio.getId());
+		if(!toEdit.isPresent())
+		{
+			return false;
+		}
+
+		filmStudioRepository.save(filmStudio);
+		return true;
+	}
+	
+	public FilmStudio findById(Long id) {
+		return filmStudioRepository.findById(id).get();
+	}
+	
+	public void delete(Long id) {
+		filmStudioRepository.deleteById(id);
+	}
 }

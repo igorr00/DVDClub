@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -85,5 +86,20 @@ public class UserController {
 	@GetMapping("/getAllFreeManagers")
     public @ResponseBody ArrayList<User> getAllFreeManagers(){
 		return userService.findAllFreeManagers();
+	}
+	
+	@PostMapping("/edit")
+    public @ResponseBody Boolean edit(@RequestBody User user){
+		return userService.edit(user);	
+	}
+	
+	@GetMapping("/getById")
+    public @ResponseBody User getById(@Param("id") Long id){
+		return userService.findById(id);
+	}
+	
+	@DeleteMapping("/delete")
+	public @ResponseBody void delete(@Param("id") Long id){
+		userService.delete(id);
 	}
 }
