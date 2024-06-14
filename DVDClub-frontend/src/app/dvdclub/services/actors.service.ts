@@ -23,4 +23,16 @@ export class ActorsService {
   add(actorDTO: ActorDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'actor/add', actorDTO, {headers: this.headers});
   }
+
+  getById(id: any): Observable<Actor> {
+    return this.http.get<Actor>(this.apiHost + 'actor/getById?id=' + id, {headers: this.headers});
+  }
+
+  edit(actor: Actor): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'actor/edit', actor, {headers: this.headers});
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'actor/delete?id=' + id, {headers: this.headers});
+  }
 }

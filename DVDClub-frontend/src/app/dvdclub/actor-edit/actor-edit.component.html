@@ -1,0 +1,34 @@
+<mat-card elevation="5" fxFlex class="content">
+    <mat-card-title>
+        <h2>Edit Actor</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p></p>
+        <form>
+            <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter actor's name" name="name" type="text" [(ngModel)]="actor.name">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Surname</mat-label>
+                        <input matInput placeholder="Enter actor's surname" name="surname" type="text" [(ngModel)]="actor.surname">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Age</mat-label>
+                        <input matInput placeholder="Enter actor's email" name="age" type="number" [(ngModel)]="actor.age">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Enter actor's country" value="" name="country" type="text" [(ngModel)]="actor.country.name">
+                    </mat-form-field>
+            </div>
+
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button><br><br>
+            <button style="width: 50%;" mat-raised-button color="secondary" (click)="delete()">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>

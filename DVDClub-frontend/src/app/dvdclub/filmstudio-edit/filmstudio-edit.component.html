@@ -1,0 +1,24 @@
+<mat-card elevation="5" fxFlex class="content">
+    <mat-card-title>
+        <h2>Edit Film Studio</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p></p>
+        <form>
+            <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter film studio's name" name="name" type="text" [(ngModel)]="filmstudio.name">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Enter film studio's country" value="" name="country" type="text" [(ngModel)]="filmstudio.country.name">
+                    </mat-form-field>
+            </div>
+
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button><br><br>
+            <button style="width: 50%;" mat-raised-button color="secondary" (click)="delete()">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>

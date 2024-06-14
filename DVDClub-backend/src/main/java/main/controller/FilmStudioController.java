@@ -56,7 +56,10 @@ public class FilmStudioController {
 	}
 	
 	@DeleteMapping("/delete")
-	public @ResponseBody void delete(@Param("id") Long id){
-		filmStudioService.delete(id);
+	public ResponseEntity<Boolean> delete(@Param("id") Long id){
+		if(filmStudioService.delete(id)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

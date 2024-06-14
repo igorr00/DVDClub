@@ -43,6 +43,11 @@ import { FilmsComponent } from './dvdclub/films/films.component';
 import { FilmAddComponent } from './dvdclub/film-add/film-add.component';
 import { ManagersComponent } from './dvdclub/managers/managers.component';
 import { ManagerAddComponent } from './dvdclub/manager-add/manager-add.component';
+import { ActorEditComponent } from './dvdclub/actor-edit/actor-edit.component';
+import { DirectorEditComponent } from './dvdclub/director-edit/director-edit.component';
+import { FilmstudioEditComponent } from './dvdclub/filmstudio-edit/filmstudio-edit.component';
+import { FilmEditComponent } from './dvdclub/film-edit/film-edit.component';
+import { MarketplaceEditComponent } from './dvdclub/marketplace-edit/marketplace-edit.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +66,12 @@ import { ManagerAddComponent } from './dvdclub/manager-add/manager-add.component
     FilmsComponent,
     FilmAddComponent,
     ManagersComponent,
-    ManagerAddComponent
+    ManagerAddComponent,
+    ActorEditComponent,
+    DirectorEditComponent,
+    FilmstudioEditComponent,
+    FilmEditComponent,
+    MarketplaceEditComponent
   ],
   imports: [
     CommonModule,

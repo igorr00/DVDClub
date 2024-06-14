@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import main.dto.UserDTO;
 import main.model.User;
-import main.model.UserCustomer;
 import main.model.UserType;
 import main.service.UserService;
 
@@ -44,7 +43,7 @@ public class UserController {
 	@PostMapping("/registration")
 	public ResponseEntity<User> register(@RequestBody UserDTO userDTO) throws MessagingException, UnsupportedEncodingException {
 
-		UserCustomer user = new UserCustomer();
+		User user = new User();
 		
 		user.setName(userDTO.getName());
 		user.setSurname(userDTO.getSurname());
@@ -99,7 +98,10 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/delete")
-	public @ResponseBody void delete(@Param("id") Long id){
-		userService.delete(id);
+	public ResponseEntity<Boolean> delete(@Param("id") Long id){
+		if(userService.delete(id)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

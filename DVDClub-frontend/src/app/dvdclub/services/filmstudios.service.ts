@@ -23,4 +23,16 @@ export class FilmstudiosService {
   add(filmstudioDTO: FilmStudioDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'filmStudio/add', filmstudioDTO, {headers: this.headers});
   }
+
+  getById(id: any): Observable<FilmStudio> {
+    return this.http.get<FilmStudio>(this.apiHost + 'filmStudio/getById?id=' + id, {headers: this.headers});
+  }
+
+  edit(filmStudio: FilmStudio): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'filmStudio/edit', filmStudio, {headers: this.headers});
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'filmStudio/delete?id=' + id, {headers: this.headers});
+  }
 }

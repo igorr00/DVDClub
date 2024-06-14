@@ -16,7 +16,6 @@ import main.dto.UserDTO;
 import main.model.Marketplace;
 import main.model.User;
 import main.model.UserType;
-import main.model.UserCustomer;
 import main.repository.MarketplaceRepository;
 import main.repository.UserRepository;
 import net.bytebuddy.utility.RandomString;
@@ -45,7 +44,7 @@ public class UserService {
 		return null;
 	}
 	
-	public Boolean register(UserCustomer user) throws MessagingException, UnsupportedEncodingException {
+	public Boolean register(User user) throws MessagingException, UnsupportedEncodingException {
 		User userTemp = userRepository.findByEmail(user.getEmail());
 		if(userTemp != null) {
 			return false;
@@ -59,7 +58,7 @@ public class UserService {
 		return true;
 	}
 	
-	public void sendVerificationEmail(UserCustomer user) throws MessagingException, UnsupportedEncodingException {
+	public void sendVerificationEmail(User user) throws MessagingException, UnsupportedEncodingException {
 	    String toAddress = user.getEmail();
 	    String fromAddress = "Dvd-Email";
 	    String senderName = "DVDCLUB";
@@ -88,7 +87,7 @@ public class UserService {
 	}
 	
 	public boolean verify(String verificationCode) {
-	    UserCustomer user = (UserCustomer) userRepository.findByVerificationCode(verificationCode);
+	    User user = (User) userRepository.findByVerificationCode(verificationCode);
 	     
 	    if (user == null || user.isEnabled()) {
 	        return false;
@@ -168,7 +167,14 @@ public class UserService {
 		return userRepository.findById(id).get();
 	}
 	
-	public void delete(Long id) {
+	public Boolean delete(Long id) {
+		for(Marketplace m: marketplaceRepository.findAll()) {
+			if(m.getManager().equals(userRepository.findById(id).get())) {
+				return false;
+			}
+		}
+		
 		userRepository.deleteById(id);
+		return true;
 	}
 }

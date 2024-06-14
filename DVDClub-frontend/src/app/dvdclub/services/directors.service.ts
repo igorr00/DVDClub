@@ -23,4 +23,16 @@ export class DirectorsService {
   add(directorDTO: DirectorDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'director/add', directorDTO, {headers: this.headers});
   }
+
+  getById(id: any): Observable<Director> {
+    return this.http.get<Director>(this.apiHost + 'director/getById?id=' + id, {headers: this.headers});
+  }
+
+  edit(director: Director): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'director/edit', director, {headers: this.headers});
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'director/delete?id=' + id, {headers: this.headers});
+  }
 }

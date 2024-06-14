@@ -23,4 +23,16 @@ export class MarketplacesService {
   add(marketplaceDTO: MarketplaceDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'marketplace/add', marketplaceDTO, {headers: this.headers});
   }
+
+  getById(id: any): Observable<Marketplace> {
+    return this.http.get<Marketplace>(this.apiHost + 'marketplace/getById?id=' + id, {headers: this.headers});
+  }
+
+  edit(marketplace: Marketplace): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'marketplace/edit', marketplace, {headers: this.headers});
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'marketplace/delete?id=' + id, {headers: this.headers});
+  }
 }

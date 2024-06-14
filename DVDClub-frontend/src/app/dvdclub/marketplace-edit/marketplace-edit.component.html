@@ -1,6 +1,6 @@
 <mat-card elevation="5" fxFlex class="content">
     <mat-card-title>
-        <h2>Add Marketplace</h2>
+        <h2>Edit Marketplace</h2>
     </mat-card-title>
     <mat-card-content>
         <p></p>
@@ -8,38 +8,39 @@
             <div class="row">
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Name</mat-label>
-                        <input matInput placeholder="Enter marketplace's name" name="name" type="text" [(ngModel)]="marketplaceDTO.name">
+                        <input matInput placeholder="Enter marketplace's name" name="name" type="text" [(ngModel)]="marketplace.name">
                     </mat-form-field>
                     <div></div>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Street</mat-label>
-                        <input matInput placeholder="Enter marketplace's surname" name="street" type="text" [(ngModel)]="marketplaceDTO.street">
+                        <input matInput placeholder="Enter marketplace's surname" name="street" type="text" [(ngModel)]="marketplace.street">
                     </mat-form-field>
                     <div></div>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Number</mat-label>
-                        <input matInput placeholder="Enter marketplace's email" name="number" type="text" [(ngModel)]="marketplaceDTO.number">
+                        <input matInput placeholder="Enter marketplace's email" name="number" type="text" [(ngModel)]="marketplace.number">
                     </mat-form-field>
                     <div></div>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>City</mat-label>
-                        <input matInput placeholder="Enter marketplace's city" value="" name="city" type="text" [(ngModel)]="marketplaceDTO.city">
+                        <input matInput placeholder="Enter marketplace's city" value="" name="city" type="text" [(ngModel)]="marketplace.city.name">
                     </mat-form-field>
                     <div></div>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Country</mat-label>
-                        <input matInput placeholder="Enter marketplace's country" value="" name="country" type="text" [(ngModel)]="marketplaceDTO.country">
+                        <input matInput placeholder="Enter marketplace's country" value="" name="country" type="text" [(ngModel)]="marketplace.city.country.name">
                     </mat-form-field>
                     <div></div>
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Manager</mat-label>
-                        <mat-select name="manager" [(ngModel)]="marketplaceDTO.manager" required>
-                            <mat-option *ngFor="let option of managers" [value]="option.email">{{option.name}} {{option.surname}}</mat-option>
+                        <mat-select name="manager" [(ngModel)]="marketplace.manager" [compareWith]="compareManagers" required>
+                            <mat-option *ngFor="let option of managers" [value]="option">{{option.name}} {{option.surname}}</mat-option>
                         </mat-select>
                     </mat-form-field>
             </div>
 
-            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button>
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button><br><br>
+            <button style="width: 50%;" mat-raised-button color="secondary" (click)="delete()">Delete</button>
         </form>
     </mat-card-content>
 </mat-card>

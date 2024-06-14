@@ -1,0 +1,62 @@
+<mat-card elevation="5" fxFlex class="content">
+    <mat-card-title>
+        <h2>Edit Film</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p></p>
+        <form>
+            <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Enter film's name" name="name" type="text" [(ngModel)]="film.name">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Year</mat-label>
+                        <input matInput placeholder="Enter film's year" name="year" type="number" [(ngModel)]="film.year">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Country</mat-label>
+                        <input matInput placeholder="Enter film's country" value="" name="country" type="text" [(ngModel)]="film.country.name">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Director</mat-label>
+                        <mat-select name="director" [(ngModel)]="film.director" [compareWith]="compareDirectors" required>
+                            <mat-option *ngFor="let option of directors" [value]="option">{{option.name}} {{option.surname}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Actors</mat-label>
+                        <mat-select name="actors" [(ngModel)]="film.actors" [compareWith]="compareActors" required multiple>
+                            <mat-option *ngFor="let option of actors" [value]="option">{{option.name}} {{option.surname}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Genres</mat-label>
+                        <mat-select name="genres" [(ngModel)]="film.genres" [compareWith]="compareGenres" required multiple>
+                            <mat-option *ngFor="let option of genres" [value]="option">{{option.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Film Studio</mat-label>
+                        <mat-select name="filmStudio" [(ngModel)]="film.filmStudio" [compareWith]="compareFilmStudios" required>
+                            <mat-option *ngFor="let option of filmstudios" [value]="option">{{ option.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Image</mat-label>
+                        <input matInput placeholder="Enter film's image link" value="" name="image" type="text" [(ngModel)]="film.image">
+                    </mat-form-field>
+            </div>
+
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button><br><br>
+            <button style="width: 50%;" mat-raised-button color="secondary" (click)="delete()">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -12,10 +12,12 @@ import main.model.Film;
 import main.model.Genre;
 import main.model.Actor;
 import main.model.Country;
+import main.model.Dvd;
 import main.repository.FilmRepository;
 import main.repository.GenreRepository;
 import main.repository.ActorRepository;
 import main.repository.CountryRepository;
+import main.repository.DvdRepository;
 
 @Service
 public class FilmService {
@@ -31,6 +33,9 @@ public class FilmService {
 	
 	@Autowired
 	private GenreRepository genreRepository;
+	
+	@Autowired
+	private DvdRepository dvdRepository;
 	
 	public Boolean add(FilmDTO dto) {
 		Film film = new Film();
@@ -73,8 +78,7 @@ public class FilmService {
         return films;
     }
 	
-	public Boolean edit(Film film)
-	{
+	public Boolean edit(Film film) {
 		Optional<Film> toEdit = filmRepository.findById(film.getId());
 		if(!toEdit.isPresent())
 		{
@@ -89,7 +93,13 @@ public class FilmService {
 		return filmRepository.findById(id).get();
 	}
 	
-	public void delete(Long id) {
+	public Boolean delete(Long id) {
+		for(Dvd d: dvdRepository.findAll()) {
+			if(d.getFilm().equals(filmRepository.findById(id).get())) {
+				return false;
+			}
+		}
 		filmRepository.deleteById(id);
+		return true;
 	}
 }

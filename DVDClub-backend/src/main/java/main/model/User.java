@@ -39,6 +39,8 @@ public class User {
 	private UserType type;
 	
 	private boolean enabled;
+	
+	private String verificationCode;
 
 	public User() {
 		super();
@@ -137,4 +139,13 @@ public class User {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public String getVerificationCode() {
+		return verificationCode;
+	}
+
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+
 }

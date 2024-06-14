@@ -27,4 +27,12 @@ export class UsersService {
   add(userDTO: UserDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'user/add', userDTO, {headers: this.headers});
   }
+
+  edit(user: User): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'user/edit', user, {headers: this.headers});
+  }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'user/delete?id=' + id, {headers: this.headers});
+  }
 }

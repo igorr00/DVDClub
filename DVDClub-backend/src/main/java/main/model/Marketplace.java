@@ -51,7 +51,7 @@ public class Marketplace {
     @JoinTable(name = "marketplace_user",
             joinColumns = @JoinColumn(name = "marketplace_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<UserCustomer> users;
+    private List<User> users;
 	
 	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     private User manager;
@@ -61,7 +61,7 @@ public class Marketplace {
 	}
 
 	public Marketplace(Long id, String name, String street, String number, City city, List<Dvd> dvds,
-			List<SpecialOffer> specialOffers, List<UserCustomer> users, User manager) {
+			List<SpecialOffer> specialOffers, List<User> users, User manager) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -130,11 +130,11 @@ public class Marketplace {
 		this.specialOffers = specialOffers;
 	}
 
-	public List<UserCustomer> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<UserCustomer> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
 	}
 

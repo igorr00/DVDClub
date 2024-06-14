@@ -25,7 +25,8 @@ export class DirectorsComponent implements OnInit {
   }
 
   public edit(id: any){
-    
+    localStorage.setItem('editDirectorId', id);
+    window.location.href="director-edit";
   }
 
   public add(){

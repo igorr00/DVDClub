@@ -91,7 +91,12 @@ public class MarketplaceService {
 		return marketplaceRepository.findById(id).get();
 	}
 	
-	public void delete(Long id) {
+	public Boolean delete(Long id) {
+		if(!marketplaceRepository.findById(id).get().getDvds().isEmpty() || !marketplaceRepository.findById(id).get().getSpecialOffers().isEmpty()) {
+			return false;
+		}
+		
 		marketplaceRepository.deleteById(id);
+		return true;
 	}
 }

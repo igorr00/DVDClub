@@ -55,7 +55,10 @@ public class MarketplaceController {
 	}
 	
 	@DeleteMapping("/delete")
-	public @ResponseBody void delete(@Param("id") Long id){
-		marketplaceService.delete(id);
+	public ResponseEntity<Boolean> delete(@Param("id") Long id){
+		if(marketplaceService.delete(id)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 }

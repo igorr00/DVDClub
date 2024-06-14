@@ -27,18 +27,21 @@ public class Dvd {
 	
 	@ManyToOne(targetEntity = Film.class, fetch = FetchType.EAGER)
     private Film film;
+	
+	private boolean available;
 
 	public Dvd() {
 		super();
 	}
 
-	public Dvd(Long id, String format, int priceBuy, int priceRent, Film film) {
+	public Dvd(Long id, String format, int priceBuy, int priceRent, Film film, boolean available) {
 		super();
 		this.id = id;
 		this.format = format;
 		this.priceBuy = priceBuy;
 		this.priceRent = priceRent;
 		this.film = film;
+		this.available = available;
 	}
 
 	public Long getId() {
@@ -79,5 +82,13 @@ public class Dvd {
 
 	public void setFilm(Film film) {
 		this.film = film;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

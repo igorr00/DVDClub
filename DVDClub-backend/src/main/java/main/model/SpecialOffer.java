@@ -39,12 +39,14 @@ public class SpecialOffer {
             joinColumns = @JoinColumn(name = "special_offer_id"),
             inverseJoinColumns = @JoinColumn(name = "dvd_id"))
     private List<Dvd> dvds;
+	
+	private boolean available;
 
 	public SpecialOffer() {
 		super();
 	}
 
-	public SpecialOffer(Long id, String name, int price, LocalDate startDate, LocalDate endDate, List<Dvd> dvds) {
+	public SpecialOffer(Long id, String name, int price, LocalDate startDate, LocalDate endDate, List<Dvd> dvds, boolean available) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -52,6 +54,7 @@ public class SpecialOffer {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.dvds = dvds;
+		this.available = available;
 	}
 
 	public Long getId() {
@@ -100,5 +103,13 @@ public class SpecialOffer {
 
 	public void setDvds(List<Dvd> dvds) {
 		this.dvds = dvds;
+	}
+
+	public boolean isAvailable() {
+		return available;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
 	}
 }

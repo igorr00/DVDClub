@@ -25,7 +25,8 @@ export class FilmsComponent implements OnInit {
   }
 
   public edit(id: any){
-    
+    localStorage.setItem('editFilmId', id);
+    window.location.href="film-edit";
   }
 
   public add(){

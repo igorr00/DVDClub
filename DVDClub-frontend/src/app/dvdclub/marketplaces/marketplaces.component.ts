@@ -25,7 +25,8 @@ export class MarketplacesComponent implements OnInit {
   }
 
   public edit(id: any){
-    
+    localStorage.setItem('editMarketplaceId', id);
+    window.location.href="marketplace-edit";
   }
 
   public add(){

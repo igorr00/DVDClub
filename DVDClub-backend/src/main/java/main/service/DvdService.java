@@ -38,7 +38,9 @@ public class DvdService {
 	public ArrayList<Dvd> findAll(){
         ArrayList<Dvd> dvds = new ArrayList<Dvd>();
         for (Dvd d: dvdRepository.findAll()) {
-        	dvds.add(d);
+        	if(d.isAvailable()) {
+        		dvds.add(d);
+        	}
         }
         return dvds;
     }

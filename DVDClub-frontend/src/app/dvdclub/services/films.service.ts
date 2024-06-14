@@ -23,4 +23,16 @@ export class FilmsService {
   add(filmDTO: FilmDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'film/add', filmDTO, {headers: this.headers});
   }
+
+  getById(id: any): Observable<Film> {
+    return this.http.get<Film>(this.apiHost + 'film/getById?id=' + id, {headers: this.headers});
+  }
+
+  edit(film: Film): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'film/edit', film, {headers: this.headers});
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'film/delete?id=' + id, {headers: this.headers});
+  }
 }

@@ -4,15 +4,25 @@ import { SpecialOffer } from "./specialoffer";
 import { User } from "./user";
 
 export class Marketplace{
-    constructor(
-        public id: number = 0,
-        public name: string = '',
-        public street: string = '',
-        public number: string = '',
-        public city: City,
-        public dvds: Dvd[] = [],
-        public specialOffers: SpecialOffer[] = [],
-        public users: User[] = [],
-        public manager: User
-    ) {}
+    id: number;
+    name: string;
+    street: string;
+    number: string;
+    city: City;
+    dvds: Dvd[];
+    specialOffers: SpecialOffer[];
+    users: User[];
+    manager: User;
+   
+    constructor(){
+        this.id = 0;
+        this.name = '';
+        this.street = '',
+        this.number = '',
+        this.city = new City(),
+        this.dvds = [],
+        this.specialOffers = [],
+        this.users = [],
+        this.manager = new User();
+    }
 }

@@ -8,6 +8,8 @@ export class User{
         public jmbg: string = '',
         public phone: string = '',
         public gender: number = 0,
-        public type: number = 0
+        public type: number = 0,
+        public enabled: boolean = false,
+        public verificationCode: string = ''
     ) {}
 }

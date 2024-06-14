@@ -9,14 +9,19 @@ import org.springframework.stereotype.Service;
 import main.dto.FilmStudioDTO;
 import main.model.FilmStudio;
 import main.model.Country;
+import main.model.Film;
 import main.repository.FilmStudioRepository;
 import main.repository.CountryRepository;
+import main.repository.FilmRepository;
 
 @Service
 public class FilmStudioService {
 
 	@Autowired
 	private FilmStudioRepository filmStudioRepository;
+	
+	@Autowired
+	private FilmRepository filmRepository;
 	
 	@Autowired
 	private CountryRepository countryRepository;
@@ -61,7 +66,14 @@ public class FilmStudioService {
 		return filmStudioRepository.findById(id).get();
 	}
 	
-	public void delete(Long id) {
+	public Boolean delete(Long id) {
+		for(Film f: filmRepository.findAll()) {
+			if(f.getFilmStudio().equals(filmStudioRepository.findById(id).get())) {
+				return false;
+			}
+		}
+		
 		filmStudioRepository.deleteById(id);
+		return true;
 	}
 }

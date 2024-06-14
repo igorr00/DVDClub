@@ -25,7 +25,8 @@ export class ActorsComponent implements OnInit {
   }
 
   public edit(id: any){
-    
+    localStorage.setItem('editActorId', id);
+    window.location.href="actor-edit";
   }
 
   public add(){
