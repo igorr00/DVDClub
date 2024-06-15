@@ -21,6 +21,9 @@ import { DirectorEditComponent } from './dvdclub/director-edit/director-edit.com
 import { FilmstudioEditComponent } from './dvdclub/filmstudio-edit/filmstudio-edit.component';
 import { FilmEditComponent } from './dvdclub/film-edit/film-edit.component';
 import { MarketplaceEditComponent } from './dvdclub/marketplace-edit/marketplace-edit.component';
+import { NewsComponent } from './dvdclub/news/news.component';
+import { NewsAddComponent } from './dvdclub/news-add/news-add.component';
+import { NewsEditComponent } from './dvdclub/news-edit/news-edit.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -42,7 +45,10 @@ const routes: Routes = [
   { path: 'director-edit', component: DirectorEditComponent },
   { path: 'filmstudio-edit', component: FilmstudioEditComponent },
   { path: 'film-edit', component: FilmEditComponent },
-  { path: 'marketplace-edit', component: MarketplaceEditComponent }
+  { path: 'marketplace-edit', component: MarketplaceEditComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'news-add', component: NewsAddComponent },
+  { path: 'news-edit', component: NewsEditComponent }
 ];
 
 @NgModule({

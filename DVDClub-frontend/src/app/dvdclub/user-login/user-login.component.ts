@@ -25,11 +25,16 @@ export class UserLoginComponent implements OnInit {
         {
           next: (res) => {
             localStorage.setItem('loggedUser', this.email);
+            localStorage.setItem('loggedUserId', res.id);
             localStorage.setItem('loggedUserRole', res.type);
             if(res.type == 'Customer'){
-              window.location.href = '';
+              window.location.href = 'dvds-customer';
             } else if (res.type == 'Admin'){
               window.location.href = 'admin-page';
+            } else if (res.type == 'MarketingManager'){
+              window.location.href = 'news';
+            } else if (res.type == 'SalesManager'){
+              window.location.href = 'dvds-manager';
             }
             this.showSuccess();
           },

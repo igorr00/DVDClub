@@ -37,6 +37,14 @@ public class UserService {
 		if(temp != null) {
 			if(temp.getPassword().equals(user.getPassword())){
 				if(temp.isEnabled()) {
+					if(temp.getType().equals(UserType.SalesManager)) {
+						for(Marketplace m: marketplaceRepository.findAll()) {
+							if(m.getManager().equals(temp)) {
+								return temp;
+							}
+						}
+						return null;
+					}
 					return temp;
 				}
 			}

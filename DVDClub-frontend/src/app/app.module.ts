@@ -48,6 +48,9 @@ import { DirectorEditComponent } from './dvdclub/director-edit/director-edit.com
 import { FilmstudioEditComponent } from './dvdclub/filmstudio-edit/filmstudio-edit.component';
 import { FilmEditComponent } from './dvdclub/film-edit/film-edit.component';
 import { MarketplaceEditComponent } from './dvdclub/marketplace-edit/marketplace-edit.component';
+import { NewsComponent } from './dvdclub/news/news.component';
+import { NewsAddComponent } from './dvdclub/news-add/news-add.component';
+import { NewsEditComponent } from './dvdclub/news-edit/news-edit.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { MarketplaceEditComponent } from './dvdclub/marketplace-edit/marketplace
     DirectorEditComponent,
     FilmstudioEditComponent,
     FilmEditComponent,
-    MarketplaceEditComponent
+    MarketplaceEditComponent,
+    NewsComponent,
+    NewsAddComponent,
+    NewsEditComponent
   ],
   imports: [
     CommonModule,
