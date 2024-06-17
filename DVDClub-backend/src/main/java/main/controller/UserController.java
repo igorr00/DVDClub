@@ -49,7 +49,6 @@ public class UserController {
 		user.setSurname(userDTO.getSurname());
 		user.setEmail(userDTO.getEmail());
 		user.setPassword(userDTO.getPassword());
-		user.setJmbg(userDTO.getJmbg());
 		user.setPhone(userDTO.getPhone());
 		user.setGender(userDTO.getGender());
 		user.setType(userDTO.getType());		

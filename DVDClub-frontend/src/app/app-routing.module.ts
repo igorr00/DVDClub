@@ -24,6 +24,8 @@ import { MarketplaceEditComponent } from './dvdclub/marketplace-edit/marketplace
 import { NewsComponent } from './dvdclub/news/news.component';
 import { NewsAddComponent } from './dvdclub/news-add/news-add.component';
 import { NewsEditComponent } from './dvdclub/news-edit/news-edit.component';
+import { DvdsManagerComponent } from './dvdclub/dvds-manager/dvds-manager.component';
+import { SpecialoffersManagerComponent } from './dvdclub/specialoffers-manager/specialoffers-manager.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -48,7 +50,9 @@ const routes: Routes = [
   { path: 'marketplace-edit', component: MarketplaceEditComponent },
   { path: 'news', component: NewsComponent },
   { path: 'news-add', component: NewsAddComponent },
-  { path: 'news-edit', component: NewsEditComponent }
+  { path: 'news-edit', component: NewsEditComponent },
+  { path: 'dvds-manager', component: DvdsManagerComponent },
+  { path: 'specialoffers-manager', component: SpecialoffersManagerComponent }
 ];
 
 @NgModule({

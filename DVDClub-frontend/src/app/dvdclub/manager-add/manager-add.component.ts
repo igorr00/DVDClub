@@ -19,7 +19,7 @@ export class ManagerAddComponent implements OnInit {
   }
 
   submit(){
-    if(this.userDTO.name == "" || this.userDTO.surname == "" || this.userDTO.email == "" || this.userDTO.password == "" || this.userDTO.jmbg == "" ||
+    if(this.userDTO.name == "" || this.userDTO.surname == "" || this.userDTO.email == "" || this.userDTO.password == "" ||
        this.userDTO.phone == ""){
         this.showError('Fill out all fields.', 'DVD Club');
         return;   

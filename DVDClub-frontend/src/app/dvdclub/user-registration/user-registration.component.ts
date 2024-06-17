@@ -19,8 +19,7 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.userDTO)
-    if(this.userDTO.name == "" || this.userDTO.surname == "" || this.userDTO.email == "" || this.userDTO.password == "" || this.userDTO.jmbg == "" ||
+    if(this.userDTO.name == "" || this.userDTO.surname == "" || this.userDTO.email == "" || this.userDTO.password == "" ||
        this.userDTO.phone == ""){
         this.showError('Fill out all fields.', 'DVD Club');
         return;   

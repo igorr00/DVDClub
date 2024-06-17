@@ -26,9 +26,6 @@ public class User {
 	@Column(name = "userPassword", nullable = false)
 	private String password;
 	
-	@Column(name = "userJmbg", unique = true, nullable = false)
-	private String jmbg;
-	
 	@Column(name = "userPhone", nullable = false)
 	private String phone;
 	
@@ -46,7 +43,7 @@ public class User {
 		super();
 	}
 
-	public User(Long id, String name, String surname, String email, String password, String jmbg, String phone,
+	public User(Long id, String name, String surname, String email, String password, String phone,
 			Gender gender, UserType type) {
 		super();
 		this.id = id;
@@ -54,7 +51,6 @@ public class User {
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
-		this.jmbg = jmbg;
 		this.phone = phone;
 		this.gender = gender;
 		this.type = type;
@@ -98,14 +94,6 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getJmbg() {
-		return jmbg;
-	}
-
-	public void setJmbg(String jmbg) {
-		this.jmbg = jmbg;
 	}
 
 	public String getPhone() {

@@ -2,6 +2,7 @@ package main.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.mail.MessagingException;
 
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import main.dto.MarketplaceDTO;
+import main.model.Dvd;
 import main.model.Marketplace;
+import main.model.SpecialOffer;
 import main.service.MarketplaceService;
 
 @RestController
@@ -60,5 +63,20 @@ public class MarketplaceController {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+	
+	@GetMapping("/getByManagerId")
+    public @ResponseBody Marketplace getByManagerId(@Param("id") Long id){
+		return marketplaceService.findByManagerId(id);
+	}
+	
+	@GetMapping("/getAvailableDvds")
+    public @ResponseBody List<Dvd> getAvailableDvds(@Param("id") Long id){
+		return marketplaceService.findAvailableDvds(id);
+	}
+	
+	@GetMapping("/getAvailableSpecialOffers")
+    public @ResponseBody List<SpecialOffer> getAvailableSpecialOffers(@Param("id") Long id){
+		return marketplaceService.findAvailableSpecialOffers(id);
 	}
 }

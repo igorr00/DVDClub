@@ -1,6 +1,7 @@
 package main.service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import main.dto.MarketplaceDTO;
 import main.model.Marketplace;
+import main.model.SpecialOffer;
 import main.model.City;
 import main.model.Country;
+import main.model.Dvd;
 import main.repository.MarketplaceRepository;
 import main.repository.UserRepository;
 import main.repository.CountryRepository;
@@ -98,5 +101,24 @@ public class MarketplaceService {
 		
 		marketplaceRepository.deleteById(id);
 		return true;
+	}
+	
+	public Marketplace findByManagerId(Long id){
+        for (Marketplace m: marketplaceRepository.findAll()) {
+        	if(m.getManager().getId().equals(id)) {
+        		return m;
+        	}
+        }
+        return null;
+    }
+	
+	public List<Dvd> findAvailableDvds(Long id) {
+		Marketplace marketplace = marketplaceRepository.findById(id).get();
+		return marketplace.getAvailableDvds();
+	}
+	
+	public List<SpecialOffer> findAvailableSpecialOffers(Long id) {
+		Marketplace marketplace = marketplaceRepository.findById(id).get();
+		return marketplace.getAvailableSpecialOffers();
 	}
 }

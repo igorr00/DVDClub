@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import main.dto.DvdDTO;
 import main.model.Dvd;
 import main.model.Film;
+import main.model.Marketplace;
 import main.repository.DvdRepository;
 import main.repository.FilmRepository;
+import main.repository.MarketplaceRepository;
 
 @Service
 public class DvdService {
@@ -20,6 +22,9 @@ public class DvdService {
 	
 	@Autowired
 	private FilmRepository filmRepository;
+	
+	@Autowired
+	private MarketplaceRepository marketplaceRepository;
 	
 	public Boolean add(DvdDTO dto) {
 		Dvd dvd = new Dvd();
@@ -32,6 +37,12 @@ public class DvdService {
 		}
 		dvd.setFilm(film.get());
 		dvdRepository.save(dvd);
+		
+		Marketplace m = marketplaceRepository.findById(dto.getMarketplaceId()).get();
+		ArrayList<Dvd> dvds = (ArrayList<Dvd>) m.getDvds();
+		dvds.add(dvd);
+		m.setDvds(dvds);
+		marketplaceRepository.save(m);
 		return true;
 	}
 	

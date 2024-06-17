@@ -1,7 +1,7 @@
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, enabled) values (default, 'Admin', 'Adminic', 'admin@gmail.com', 'asd', '1', '12345', 0, 0, true);
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, enabled) values (default, 'Pera', 'Peric', 'pera@gmail.com', 'asd', '2', '12345', 0, 2, true);
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, enabled) values (default, 'Mika', 'Mikic', 'mika@gmail.com', 'asd', '22', '12345', 0, 2, true);
-insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_jmbg, user_phone, user_gender, user_type, enabled) values (default, 'Zika', 'Zikic', 'zika@gmail.com', 'asd', '3', '12345', 0, 3, true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_phone, user_gender, user_type, enabled) values (default, 'Admin', 'Adminic', 'admin@gmail.com', 'asd', '12345', 0, 0, true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_phone, user_gender, user_type, enabled) values (default, 'Pera', 'Peric', 'pera@gmail.com', 'asd','12345', 0, 2, true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_phone, user_gender, user_type, enabled) values (default, 'Mika', 'Mikic', 'mika@gmail.com', 'asd','12345', 0, 2, true);
+insert into public.user (user_id, user_name, user_surname, user_email, user_password, user_phone, user_gender, user_type, enabled) values (default, 'Zika', 'Zikic', 'zika@gmail.com', 'asd','12345', 0, 3, true);
 
 insert into public.country (country_id, country_name) values (default, 'USA');
 insert into public.country (country_id, country_name) values (default, 'Great Britain');
@@ -55,10 +55,14 @@ insert into public.city (city_id, city_name, country_country_id) values (default
 insert into public.marketplace (marketplace_id, marketplace_name, marketplace_street, marketplace_number, city_city_id, manager_user_id) values (default, 'Marketplace 021', 'Bulevar Oslobodjenja', '44', 1, 2);
 
 insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '1080p Blu-Ray', 3000, 1000, 1, true);
-insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '1080p Blu-Ray', 3000, 1000, 1, true);
-insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '720p Blu-Ray', 1500, 500, 1, true);
+insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '1080p Blu-Ray', 3000, 1000, 1, false);
+insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '720p Blu-Ray', 1500, 500, 1, false);
 insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '4K Blu-Ray', 5000, 2000, 1, true);
 
+insert into public.special_offer (special_offer_id, special_offer_name, special_offer_price, special_offer_start_date, special_offer_end_date, available) values (default, 'Dune (2021) 1080p + 720p combo', 3500, '2024-6-1', '2024-8-1', true);
+insert into public.special_offer_dvd (special_offer_id, dvd_id) values (1,2), (1,3);
+
 insert into public.marketplace_dvd (marketplace_id, dvd_id) values (1,1), (1,2), (1,3), (1,4);
+insert into public.marketplace_special_offer (marketplace_id, special_offer_id) values (1,1);
 
 insert into public.news (news_id, news_date, news_title, news_text) values (default, '2024-6-2', 'New marketplace opened', 'A brand new marketplace has been opened in the city of Novi Sad. It is located in Bulevar Oslobodjenja 44. Check out the dvds we have for sale. Newest hits, old classics and many many more.')

@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Marketplace } from '../model/marketplace';
 import { MarketplaceDTO } from '../dto/marketplaceDTO';
+import { Dvd } from '../model/dvd';
+import { SpecialOffer } from '../model/specialoffer';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +36,17 @@ export class MarketplacesService {
 
   delete(id: number): Observable<any> {
     return this.http.delete<any>(this.apiHost + 'marketplace/delete?id=' + id, {headers: this.headers});
+  }
+
+  getByManagerId(id: any): Observable<Marketplace> {
+    return this.http.get<Marketplace>(this.apiHost + 'marketplace/getByManagerId?id=' + id, {headers: this.headers});
+  }
+
+  getAvailableDvds(id: any): Observable<Dvd[]> {
+    return this.http.get<Dvd[]>(this.apiHost + 'marketplace/getAvailableDvds?id=' + id, {headers: this.headers});
+  }
+
+  getAvailableSpecialOffers(id: any): Observable<SpecialOffer[]> {
+    return this.http.get<SpecialOffer[]>(this.apiHost + 'marketplace/getAvailableSpecialOffers?id=' + id, {headers: this.headers});
   }
 }

@@ -1,5 +1,6 @@
 package main.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -115,7 +116,7 @@ public class Marketplace {
 	}
 
 	public List<Dvd> getDvds() {
-		return dvds;
+		return this.dvds;
 	}
 
 	public void setDvds(List<Dvd> dvds) {
@@ -144,5 +145,25 @@ public class Marketplace {
 
 	public void setManager(User manager) {
 		this.manager = manager;
+	}
+	
+	public List<Dvd> getAvailableDvds() {
+		ArrayList<Dvd> res = new ArrayList<Dvd>();
+        for (Dvd d: this.dvds) {
+        	if(d.isAvailable()) {
+        		res.add(d);
+        	}
+        }
+		return res;
+	}
+	
+	public List<SpecialOffer> getAvailableSpecialOffers() {
+		ArrayList<SpecialOffer> res = new ArrayList<SpecialOffer>();
+        for (SpecialOffer so: this.specialOffers) {
+        	if(so.isAvailable()) {
+        		res.add(so);
+        	}
+        }
+		return res;
 	}
 }

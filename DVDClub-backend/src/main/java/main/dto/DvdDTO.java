@@ -6,17 +6,19 @@ public class DvdDTO {
 	private int priceBuy;
 	private int priceRent;
 	private Long filmId;
+	private Long marketplaceId;
 	
 	public DvdDTO() {
 		super();
 	}
 
-	public DvdDTO(String format, int priceBuy, int priceRent, Long filmId) {
+	public DvdDTO(String format, int priceBuy, int priceRent, Long filmId, Long marketplaceId) {
 		super();
 		this.format = format;
 		this.priceBuy = priceBuy;
 		this.priceRent = priceRent;
 		this.filmId = filmId;
+		this.marketplaceId = marketplaceId;
 	}
 
 	public String getFormat() {
@@ -49,6 +51,14 @@ public class DvdDTO {
 
 	public void setFilmId(Long filmId) {
 		this.filmId = filmId;
+	}
+
+	public Long getMarketplaceId() {
+		return marketplaceId;
+	}
+
+	public void setMarketplaceId(Long marketplaceId) {
+		this.marketplaceId = marketplaceId;
 	}
 	
 }
