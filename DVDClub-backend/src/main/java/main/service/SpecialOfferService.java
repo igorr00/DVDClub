@@ -85,6 +85,18 @@ public class SpecialOfferService {
 	}
 	
 	public void delete(Long id) {
+		for (Dvd d : specialOfferRepository.findById(id).get().getDvds()) {
+		    dvdRepository.findById(d.getId()).get().setAvailable(true);
+		    dvdRepository.save(dvdRepository.findById(d.getId()).get());
+		}
+		
+		for(Marketplace m: marketplaceRepository.findAll()) {
+			if(m.getAvailableSpecialOffers().contains(specialOfferRepository.findById(id).get())) {
+				m.getSpecialOffers().remove(specialOfferRepository.findById(id).get());
+				marketplaceRepository.save(m);
+			}
+		}
+		
 		specialOfferRepository.deleteById(id);
 	}
 }

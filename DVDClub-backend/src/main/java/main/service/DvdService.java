@@ -36,13 +36,13 @@ public class DvdService {
 			return false;
 		}
 		dvd.setFilm(film.get());
+		dvd.setAvailable(true);
 		dvdRepository.save(dvd);
 		
-		Marketplace m = marketplaceRepository.findById(dto.getMarketplaceId()).get();
-		ArrayList<Dvd> dvds = (ArrayList<Dvd>) m.getDvds();
-		dvds.add(dvd);
-		m.setDvds(dvds);
-		marketplaceRepository.save(m);
+		Marketplace marketplace = marketplaceRepository.findById(dto.getMarketplaceId()).orElseThrow(() -> new RuntimeException("Marketplace not found"));
+		marketplace.getDvds().add(dvd);
+		
+		marketplaceRepository.save(marketplace);
 		return true;
 	}
 	
@@ -73,6 +73,13 @@ public class DvdService {
 	}
 	
 	public void delete(Long id) {
+		for(Marketplace m: marketplaceRepository.findAll()) {
+			if(m.getAvailableDvds().contains(dvdRepository.findById(id).get())) {
+				m.getDvds().remove(dvdRepository.findById(id).get());
+				marketplaceRepository.save(m);
+			}
+		}
+		
 		dvdRepository.deleteById(id);
 	}
 }

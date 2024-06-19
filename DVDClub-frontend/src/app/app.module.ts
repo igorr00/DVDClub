@@ -53,6 +53,10 @@ import { NewsAddComponent } from './dvdclub/news-add/news-add.component';
 import { NewsEditComponent } from './dvdclub/news-edit/news-edit.component';
 import { DvdsManagerComponent } from './dvdclub/dvds-manager/dvds-manager.component';
 import { SpecialoffersManagerComponent } from './dvdclub/specialoffers-manager/specialoffers-manager.component';
+import { DvdAddComponent } from './dvdclub/dvd-add/dvd-add.component';
+import { DvdEditComponent } from './dvdclub/dvd-edit/dvd-edit.component';
+import { SpecialofferAddComponent } from './dvdclub/specialoffer-add/specialoffer-add.component';
+import { SpecialofferEditComponent } from './dvdclub/specialoffer-edit/specialoffer-edit.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +85,11 @@ import { SpecialoffersManagerComponent } from './dvdclub/specialoffers-manager/s
     NewsAddComponent,
     NewsEditComponent,
     DvdsManagerComponent,
-    SpecialoffersManagerComponent
+    SpecialoffersManagerComponent,
+    DvdAddComponent,
+    DvdEditComponent,
+    SpecialofferAddComponent,
+    SpecialofferEditComponent
   ],
   imports: [
     CommonModule,

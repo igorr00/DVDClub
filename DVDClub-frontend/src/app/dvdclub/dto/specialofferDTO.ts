@@ -1,19 +1,17 @@
-import { Dvd } from "./dvd";
-
-export class SpecialOffer{
-    id: number;
+export class SpecialOfferDTO{
     name: string;
     price: number;
     startDate: Date;
     endDate: Date;
-    dvds: Dvd[];
+    dvdIds: number[];
+    marketplaceId: number;
 
     constructor(){
-        this.id = 0,
         this.name = '',
         this.price = 0,
         this.startDate = new Date(),
         this.endDate = new Date(),
-        this.dvds = []
+        this.dvdIds = [],
+        this.marketplaceId = 0
     }
 }

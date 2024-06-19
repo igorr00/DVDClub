@@ -15,16 +15,15 @@ export class DvdsManagerComponent implements OnInit {
   public displayedColumns = ['film', 'format', 'buy', 'rent', 'edit'];
   public dvds: Dvd[] = [];
   public title = '';
-  public marketplaceId = 0;
 
   constructor(private router:Router, private marketplacesService: MarketplacesService) { }
 
   ngOnInit(): void {
     this.marketplacesService.getByManagerId(localStorage.getItem('loggedUserId')).subscribe(res => {
       this.title = res.name;
-      this.marketplaceId = res.id;
+      localStorage.setItem('marketplaceId', res.id.toString());
       
-      this.marketplacesService.getAvailableDvds(this.marketplaceId).subscribe(res => {
+      this.marketplacesService.getAvailableDvds(localStorage.getItem('marketplaceId')).subscribe(res => {
         this.dvds = res;
         this.dataSource.data = this.dvds;
       })
@@ -37,7 +36,6 @@ export class DvdsManagerComponent implements OnInit {
   }
 
   public add(){
-    localStorage.setItem('marketplaceId', this.marketplaceId.toString());
     window.location.href="dvd-add";
   }
 

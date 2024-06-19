@@ -1,0 +1,29 @@
+<mat-card elevation="5" fxFlex class="content">
+    <mat-card-title>
+        <h2>Edit Dvd</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p></p>
+        <form>
+            <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Format</mat-label>
+                        <input matInput placeholder="Enter dvd's format" name="format" type="text" [(ngModel)]="dvd.format">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Buy Price</mat-label>
+                        <input matInput placeholder="Enter dvd's buy price" name="priceBuy" type="text" [(ngModel)]="dvd.priceBuy">
+                    </mat-form-field>
+                    <div></div>
+                    <mat-form-field class="full-width" appearance="fill">
+                        <mat-label>Rent Price</mat-label>
+                        <input matInput placeholder="Enter dvd's rent price" name="priceRent" type="number" [(ngModel)]="dvd.priceRent">
+                    </mat-form-field>
+            </div>
+
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button><br><br>
+            <button style="width: 50%;" mat-raised-button color="secondary" (click)="delete()">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>

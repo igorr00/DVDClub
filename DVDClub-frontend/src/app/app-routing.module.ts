@@ -26,6 +26,10 @@ import { NewsAddComponent } from './dvdclub/news-add/news-add.component';
 import { NewsEditComponent } from './dvdclub/news-edit/news-edit.component';
 import { DvdsManagerComponent } from './dvdclub/dvds-manager/dvds-manager.component';
 import { SpecialoffersManagerComponent } from './dvdclub/specialoffers-manager/specialoffers-manager.component';
+import { DvdAddComponent } from './dvdclub/dvd-add/dvd-add.component';
+import { DvdEditComponent } from './dvdclub/dvd-edit/dvd-edit.component';
+import { SpecialofferAddComponent } from './dvdclub/specialoffer-add/specialoffer-add.component';
+import { SpecialofferEditComponent } from './dvdclub/specialoffer-edit/specialoffer-edit.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -52,7 +56,11 @@ const routes: Routes = [
   { path: 'news-add', component: NewsAddComponent },
   { path: 'news-edit', component: NewsEditComponent },
   { path: 'dvds-manager', component: DvdsManagerComponent },
-  { path: 'specialoffers-manager', component: SpecialoffersManagerComponent }
+  { path: 'specialoffers-manager', component: SpecialoffersManagerComponent },
+  { path: 'dvd-add', component: DvdAddComponent },
+  { path: 'dvd-edit', component: DvdEditComponent },
+  { path: 'specialoffer-add', component: SpecialofferAddComponent },
+  { path: 'specialoffer-edit', component: SpecialofferEditComponent }
 ];
 
 @NgModule({

@@ -28,8 +28,8 @@ export class DvdsService {
     return this.http.get<Dvd>(this.apiHost + 'dvd/getById?id=' + id, {headers: this.headers});
   }
 
-  edit(actor: Dvd): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'dvd/edit', actor, {headers: this.headers});
+  edit(dvd: Dvd): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'dvd/edit', dvd, {headers: this.headers});
   }
 
   delete(id: number): Observable<any> {

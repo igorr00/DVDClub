@@ -1,11 +1,17 @@
 import { Film } from "./film";
 
 export class Dvd{
-    constructor(
-        public id: number = 0,
-        public format: string = '',
-        public priceBuy: number = 0,
-        public priceRent: number = 0,
-        public film: Film
-    ) {}
+    id: number;
+    format: string;
+    priceRent: number;
+    film: Film;
+    priceBuy: number;
+
+    constructor(){
+        this.id = 0,
+        this.format = '',
+        this.priceBuy = 0,
+        this.priceRent = 0,
+        this.film = new Film()
+    }
 }
