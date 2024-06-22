@@ -57,6 +57,9 @@ import { DvdAddComponent } from './dvdclub/dvd-add/dvd-add.component';
 import { DvdEditComponent } from './dvdclub/dvd-edit/dvd-edit.component';
 import { SpecialofferAddComponent } from './dvdclub/specialoffer-add/specialoffer-add.component';
 import { SpecialofferEditComponent } from './dvdclub/specialoffer-edit/specialoffer-edit.component';
+import { MarketplacesCustomerComponent } from './dvdclub/marketplaces-customer/marketplaces-customer.component';
+import { DvdsCustomerComponent } from './dvdclub/dvds-customer/dvds-customer.component';
+import { FilmViewComponent } from './dvdclub/film-view/film-view.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +92,10 @@ import { SpecialofferEditComponent } from './dvdclub/specialoffer-edit/specialof
     DvdAddComponent,
     DvdEditComponent,
     SpecialofferAddComponent,
-    SpecialofferEditComponent
+    SpecialofferEditComponent,
+    MarketplacesCustomerComponent,
+    DvdsCustomerComponent,
+    FilmViewComponent
   ],
   imports: [
     CommonModule,

@@ -121,4 +121,8 @@ public class MarketplaceService {
 		Marketplace marketplace = marketplaceRepository.findById(id).get();
 		return marketplace.getAvailableSpecialOffers();
 	}
+	
+	public Boolean checkUser(Long marketplaceId, Long userId) {
+		return marketplaceRepository.findById(marketplaceId).get().getUsers().contains(userRepository.findById(userId).get());
+	}
 }

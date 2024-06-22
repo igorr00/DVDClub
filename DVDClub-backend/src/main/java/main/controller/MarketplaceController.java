@@ -79,4 +79,12 @@ public class MarketplaceController {
     public @ResponseBody List<SpecialOffer> getAvailableSpecialOffers(@Param("id") Long id){
 		return marketplaceService.findAvailableSpecialOffers(id);
 	}
+	
+	@GetMapping("/checkUser")
+    public ResponseEntity<Boolean> checkUser(@Param("marketplaceId") Long marketplaceId, @Param("userId") Long userId){
+		if(marketplaceService.checkUser(marketplaceId, userId)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 }

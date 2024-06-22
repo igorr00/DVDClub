@@ -28,7 +28,7 @@ export class UserLoginComponent implements OnInit {
             localStorage.setItem('loggedUserId', res.id);
             localStorage.setItem('loggedUserRole', res.type);
             if(res.type == 'Customer'){
-              window.location.href = 'dvds-customer';
+              window.location.href = 'marketplaces-customer';
             } else if (res.type == 'Admin'){
               window.location.href = 'admin-page';
             } else if (res.type == 'MarketingManager'){

@@ -3,7 +3,6 @@
         <h2>Marketplaces</h2>
     </mat-card-title>
     <mat-card-content>
-        <button mat-flat-button (click)="add()">Add</button>
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef class="cell"> Name </th>
@@ -28,7 +27,7 @@
             <ng-container matColumnDef="edit">
                 <th mat-header-cell *matHeaderCellDef class="cell"></th>
                 <td mat-cell *matCellDef="let marketplace" class="cell">
-                    <button class="editButton" mat-raised-button (click)="edit(marketplace.id)">Edit</button>
+                    <button class="editButton" mat-raised-button (click)="visit(marketplace.id)">Visit</button>
                 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
