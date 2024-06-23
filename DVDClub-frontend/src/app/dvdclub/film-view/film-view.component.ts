@@ -28,4 +28,20 @@ export class FilmViewComponent implements OnInit {
     })
   }
 
+  getGenreNames(): string {
+    return this.film.genres.map(genre => genre.name).join(', ');
+  }
+
+  getActorNames(): string {
+    return this.film.actors.map(actor => actor.name + " " + actor.surname).join(', ');
+  }
+
+  public add(){
+    window.location.href="rating-add";
+  }
+
+  formatTime(time: string): string {
+    return time.split(',').join(':');
+}
+
 }

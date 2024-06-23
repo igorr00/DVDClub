@@ -2,7 +2,13 @@ h2 {
     text-align: center;
 }
 
-mat-grid-tile {
-    text-align: left;
+.custom-tile {
+    position: absolute;
+    left: 5px;
     font-size: medium;
+}
+
+button{
+    background: #04AA6D;
+    color: white;
 }

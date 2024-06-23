@@ -55,8 +55,8 @@ insert into public.film (film_id, film_name, film_year, country_country_id, film
 insert into public.film_genre (film_id, genre_id) values (1,1), (1,2), (1,8), (1,18);
 insert into public.film_actor (film_id, actor_id) values (1,1), (1,2), (1,3);
 insert into public.film (film_id, film_name, film_year, country_country_id, film_studio_film_studio_id, director_director_id, film_image) values (default, 'The Talented Mr. Ripley', 1999, 1, 3, 2, 'https://m.media-amazon.com/images/I/51rN9kvscsL._AC_UF894,1000_QL80_.jpg');
-insert into public.film_genre (film_id, genre_id) values (1,1), (1,6), (1,8), (1,20);
-insert into public.film_actor (film_id, actor_id) values (1,4), (1,5), (1,6), (1,7);
+insert into public.film_genre (film_id, genre_id) values (2,1), (2,6), (2,8), (2,20);
+insert into public.film_actor (film_id, actor_id) values (2,4), (2,5), (2,6), (2,7);
 
 insert into public.city (city_id, city_name, country_country_id) values (default, 'Novi Sad', 3);
 insert into public.city (city_id, city_name, country_country_id) values (default, 'Beograd', 3);

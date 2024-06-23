@@ -1,22 +1,28 @@
 <mat-card elevation="5">
     <mat-card-title>
-        <h2>{{film.name}}</h2>
+        <h2>{{film.name}} ({{film.year}})</h2>
     </mat-card-title>
     <mat-card-content>
         <mat-grid-list cols="4" rowHeight="100px">
             <mat-grid-tile
                 [colspan]="1"
                 [rowspan]="3"><img src={{film.image}} width="200px" height="300px"></mat-grid-tile>
-            <mat-grid-tile
-                [colspan]="3"
-                [rowspan]="1">{{film.year}}</mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="3">
+                    <div class="custom-tile"><b>Genres</b>: {{ getGenreNames() }}<br><br><br>
+                        <b>Actors</b>: {{ getActorNames() }}<br><br><br>
+                        <b>Director</b>: {{film.director.name}} {{film.director.surname}}<br><br><br>
+                        <b>Studio</b>: {{film.filmStudio.name}}<br><br><br>
+                        <b>Country</b>: {{film.country.name}}</div>
+                </mat-grid-tile>
         </mat-grid-list>
 
-        <h3 style="font-size: x-large; text-align: center;">Ratings</h3>
+        <h3 style="font-size: x-large;">Ratings</h3>
+        <button mat-flat-button (click)="add()">Add Review</button>
         <mat-grid-list cols="4" rowHeight="100px">
             <mat-grid-tile *ngFor="let rating of ratings; let i = index" [colspan]="4" [rowspan]="1">
-                {{ rating.user.name }} {{ rating.user.surname }} - {{ rating.score }}<br><br>
-                {{ rating.comment }}
+                <div class="custom-tile"><b>{{ rating.user.name }} {{ rating.user.surname }}</b> : {{rating.date | date:'yyyy-MM-dd' }} {{formatTime(rating.time.toString())}}<br>
+                Score: {{ rating.score }}<br>
+                {{ rating.comment }}</div>
             </mat-grid-tile>
         </mat-grid-list>
     </mat-card-content>

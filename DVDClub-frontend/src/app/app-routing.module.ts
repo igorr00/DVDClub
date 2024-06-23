@@ -33,6 +33,7 @@ import { SpecialofferEditComponent } from './dvdclub/specialoffer-edit/specialof
 import { MarketplacesCustomerComponent } from './dvdclub/marketplaces-customer/marketplaces-customer.component';
 import { DvdsCustomerComponent } from './dvdclub/dvds-customer/dvds-customer.component';
 import { FilmViewComponent } from './dvdclub/film-view/film-view.component';
+import { RatingAddComponent } from './dvdclub/rating-add/rating-add.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -66,7 +67,8 @@ const routes: Routes = [
   { path: 'specialoffer-edit', component: SpecialofferEditComponent },
   { path: 'marketplaces-customer', component: MarketplacesCustomerComponent },
   { path: 'dvds-customer', component: DvdsCustomerComponent },
-  { path: 'film-view', component: FilmViewComponent }
+  { path: 'film-view', component: FilmViewComponent },
+  { path: 'rating-add', component: RatingAddComponent }
 ];
 
 @NgModule({
