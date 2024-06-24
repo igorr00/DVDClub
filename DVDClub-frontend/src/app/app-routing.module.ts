@@ -34,10 +34,12 @@ import { MarketplacesCustomerComponent } from './dvdclub/marketplaces-customer/m
 import { DvdsCustomerComponent } from './dvdclub/dvds-customer/dvds-customer.component';
 import { FilmViewComponent } from './dvdclub/film-view/film-view.component';
 import { RatingAddComponent } from './dvdclub/rating-add/rating-add.component';
+import { RatingsComponent } from './dvdclub/ratings/ratings.component';
+import { RatingEditComponent } from './dvdclub/rating-edit/rating-edit.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
-  { path: 'user-login', component: UserLoginComponent },
+  { path: '', component: UserLoginComponent },
   { path: 'admin-page', component: AdminPageComponent },
   { path: 'actors', component: ActorsComponent },
   { path: 'actor-add', component: ActorAddComponent },
@@ -68,7 +70,9 @@ const routes: Routes = [
   { path: 'marketplaces-customer', component: MarketplacesCustomerComponent },
   { path: 'dvds-customer', component: DvdsCustomerComponent },
   { path: 'film-view', component: FilmViewComponent },
-  { path: 'rating-add', component: RatingAddComponent }
+  { path: 'rating-add', component: RatingAddComponent },
+  { path: 'ratings', component: RatingsComponent },
+  { path: 'rating-edit', component: RatingEditComponent }
 ];
 
 @NgModule({

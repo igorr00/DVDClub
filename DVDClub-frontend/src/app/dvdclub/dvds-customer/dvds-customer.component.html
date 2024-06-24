@@ -6,25 +6,30 @@
         <table mat-table [dataSource]="dataSource">
             <ng-container matColumnDef="film">
                 <th mat-header-cell *matHeaderCellDef class="cell"> Film </th>
-                <td mat-cell *matCellDef="let dvd" class="cell" (click)="filmView(dvd.film.id)">{{dvd.film.name}}</td>
+                <td mat-cell *matCellDef="let dvd" class="cell" (click)="filmView(dvd.film.id)">{{dvd.film.name}} ({{dvd.film.year}})</td>
             </ng-container>
             <ng-container matColumnDef="format">
                 <th mat-header-cell *matHeaderCellDef class="cell"> Format </th>
                 <td mat-cell *matCellDef="let dvd" class="cell" (click)="filmView(dvd.film.id)">{{dvd.format}}</td>
             </ng-container>
-            <ng-container matColumnDef="buy">
+            <ng-container matColumnDef="pricebuy">
                 <th mat-header-cell *matHeaderCellDef class="cell"> Buy price </th>
                 <td mat-cell *matCellDef="let dvd" class="cell" (click)="filmView(dvd.film.id)">{{dvd.priceBuy}}</td>
             </ng-container>
-            <ng-container matColumnDef="rent">
+            <ng-container matColumnDef="pricerent">
                 <th mat-header-cell *matHeaderCellDef class="cell"> Rent price </th>
                 <td mat-cell *matCellDef="let dvd" class="cell" (click)="filmView(dvd.film.id)">{{dvd.priceRent}}</td>
             </ng-container>
-            <ng-container matColumnDef="edit">
+            <ng-container matColumnDef="buy">
                 <th mat-header-cell *matHeaderCellDef class="cell"></th>
                 <td mat-cell *matCellDef="let dvd" class="cell">
                     <button class="editButton" mat-raised-button (click)="buy(dvd.id)">Buy</button>
-                    <button class="editButton" mat-raised-button (click)="buy(dvd.id)">Rent</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="rent">
+                <th mat-header-cell *matHeaderCellDef class="cell"></th>
+                <td mat-cell *matCellDef="let dvd" class="cell">
+                    <button class="editButton" mat-raised-button (click)="rent(dvd.id)">Rent</button>
                 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

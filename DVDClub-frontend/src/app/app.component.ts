@@ -14,6 +14,6 @@ export class AppComponent {
 
   logout(){
     localStorage.setItem('loggedUserRole', '');
-    window.location.href="user-login";
+    window.location.href="";
   }
 }

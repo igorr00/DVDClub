@@ -1,0 +1,24 @@
+<mat-card elevation="5" fxFlex class="content">
+    <mat-card-title>
+        <h2>Edit Rating</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <p></p>
+        <form>
+            <div class="row">
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Rate</mat-label>
+                    <input matInput name="score" type="number" min="1" max="5" [(ngModel)]="rating.score">
+                </mat-form-field>
+                <div></div>
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Comment</mat-label>
+                    <textarea class="custom-input" matInput name="comment" type="text" [(ngModel)]="rating.comment"></textarea>
+                </mat-form-field>
+            </div>
+
+            <button style="width: 50%;" mat-raised-button color="primary" (click)="submit()">Submit</button><br><br>
+            <button style="width: 50%;" mat-raised-button color="secondary" (click)="delete()">Delete</button>
+        </form>
+    </mat-card-content>
+</mat-card>

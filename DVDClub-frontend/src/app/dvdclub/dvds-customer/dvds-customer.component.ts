@@ -12,7 +12,7 @@ import { MarketplacesService } from '../services/marketplaces.service';
 export class DvdsCustomerComponent implements OnInit {
 
   public dataSource = new MatTableDataSource<Dvd>();
-  public displayedColumns = ['film', 'format', 'buy', 'rent', 'edit'];
+  public displayedColumns = ['film', 'format', 'pricebuy', 'pricerent', 'buy', 'rent'];
   public dvds: Dvd[] = [];
   public title = '';
 
