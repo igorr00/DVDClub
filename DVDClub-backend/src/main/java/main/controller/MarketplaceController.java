@@ -87,4 +87,12 @@ public class MarketplaceController {
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
+	
+	@PostMapping("/membership")
+    public ResponseEntity<Boolean> membership(@Param("marketplaceId") Long marketplaceId, @Param("userId") Long userId){
+		if(marketplaceService.membership(marketplaceId, userId)) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 }

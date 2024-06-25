@@ -4,7 +4,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Rating } from '../model/rating';
 import { RatingsService } from '../services/ratings.service';
 
-
 @Component({
   selector: 'app-ratings',
   templateUrl: './ratings.component.html',

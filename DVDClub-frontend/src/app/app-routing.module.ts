@@ -36,6 +36,7 @@ import { FilmViewComponent } from './dvdclub/film-view/film-view.component';
 import { RatingAddComponent } from './dvdclub/rating-add/rating-add.component';
 import { RatingsComponent } from './dvdclub/ratings/ratings.component';
 import { RatingEditComponent } from './dvdclub/rating-edit/rating-edit.component';
+import { PurchasesComponent } from './dvdclub/purchases/purchases.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -72,7 +73,8 @@ const routes: Routes = [
   { path: 'film-view', component: FilmViewComponent },
   { path: 'rating-add', component: RatingAddComponent },
   { path: 'ratings', component: RatingsComponent },
-  { path: 'rating-edit', component: RatingEditComponent }
+  { path: 'rating-edit', component: RatingEditComponent },
+  { path: 'purchases', component: PurchasesComponent }
 ];
 
 @NgModule({

@@ -37,7 +37,7 @@ public class RatingService {
 		rating.setScore(dto.getScore());
 		rating.setComment(dto.getComment());
 		rating.setDate(LocalDate.now());
-		rating.setTime(LocalTime.now());
+		rating.setTime(LocalTime.of(LocalTime.now().getHour(), LocalTime.now().getMinute()));
 		rating.setUser(userRepository.findById(dto.getUserId()).get());
 		rating.setFilm(filmRepository.findById(dto.getFilmId()).get());
 		

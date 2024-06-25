@@ -63,6 +63,7 @@ import { FilmViewComponent } from './dvdclub/film-view/film-view.component';
 import { RatingAddComponent } from './dvdclub/rating-add/rating-add.component';
 import { RatingsComponent } from './dvdclub/ratings/ratings.component';
 import { RatingEditComponent } from './dvdclub/rating-edit/rating-edit.component';
+import { PurchasesComponent } from './dvdclub/purchases/purchases.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import { RatingEditComponent } from './dvdclub/rating-edit/rating-edit.component
     FilmViewComponent,
     RatingAddComponent,
     RatingsComponent,
-    RatingEditComponent
+    RatingEditComponent,
+    PurchasesComponent
   ],
   imports: [
     CommonModule,

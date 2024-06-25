@@ -49,4 +49,12 @@ export class MarketplacesService {
   getAvailableSpecialOffers(id: any): Observable<SpecialOffer[]> {
     return this.http.get<SpecialOffer[]>(this.apiHost + 'marketplace/getAvailableSpecialOffers?id=' + id, {headers: this.headers});
   }
+
+  checkUser(marketplaceId: any, userId: any): Observable<any> {
+    return this.http.get<any>(this.apiHost + 'marketplace/checkUser?marketplaceId=' + marketplaceId + '&userId=' + userId, {headers: this.headers});
+  }
+
+  membership(marketplaceId: any, userId: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'marketplace/membership?marketplaceId=' + marketplaceId + '&userId=' + userId, {headers: this.headers});
+  }
 }

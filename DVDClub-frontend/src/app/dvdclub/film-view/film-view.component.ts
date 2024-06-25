@@ -40,8 +40,8 @@ export class FilmViewComponent implements OnInit {
     window.location.href="rating-add";
   }
 
-  formatTime(time: string): string {
+  public formatTime(time: string): string {
     return time.split(',').join(':');
-}
+  }
 
 }

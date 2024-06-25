@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import main.dto.MarketplaceDTO;
 import main.model.Marketplace;
 import main.model.SpecialOffer;
+import main.model.User;
 import main.model.City;
 import main.model.Country;
 import main.model.Dvd;
@@ -124,5 +125,18 @@ public class MarketplaceService {
 	
 	public Boolean checkUser(Long marketplaceId, Long userId) {
 		return marketplaceRepository.findById(marketplaceId).get().getUsers().contains(userRepository.findById(userId).get());
+	}
+	
+	public Boolean membership(Long marketplaceId, Long userId) {
+		if(checkUser(marketplaceId, userId)) {
+			return false;
+		}
+		
+		Marketplace marketplace = marketplaceRepository.findById(marketplaceId).orElseThrow(() -> new RuntimeException("Marketplace not found"));
+		User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+		marketplace.getUsers().add(user);
+		marketplaceRepository.save(marketplace);
+		
+		return true;
 	}
 }
