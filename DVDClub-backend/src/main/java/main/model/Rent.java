@@ -34,18 +34,21 @@ public class Rent {
 	@Column(name = "rentDue", nullable = false)
 	private LocalDate due;
 	
-	@Column(name = "rentDateReturned", nullable = false)
+	@Column(name = "rentDateReturned")
 	private LocalDate dateReturned;
 	
-	@Column(name = "rentTimeReturned", nullable = false)
+	@Column(name = "rentTimeReturned")
 	private LocalTime timeReturned;
+	
+	@Column(name = "rentStatus", nullable = false)
+	private RentStatus status;
 
 	public Rent() {
 		super();
 	}
 
 	public Rent(Long id, LocalDate date, LocalTime time, User user, Dvd dvd, LocalDate due, LocalDate dateReturned,
-			LocalTime timeReturned) {
+			LocalTime timeReturned, RentStatus status) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -55,6 +58,7 @@ public class Rent {
 		this.due = due;
 		this.dateReturned = dateReturned;
 		this.timeReturned = timeReturned;
+		this.status = status;
 	}
 
 	public Long getId() {
@@ -119,5 +123,13 @@ public class Rent {
 
 	public void setTimeReturned(LocalTime timeReturned) {
 		this.timeReturned = timeReturned;
+	}
+
+	public RentStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(RentStatus status) {
+		this.status = status;
 	}
 }

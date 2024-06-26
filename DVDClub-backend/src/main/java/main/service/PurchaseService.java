@@ -10,10 +10,13 @@ import org.springframework.stereotype.Service;
 
 import main.dto.PurchaseDTO;
 import main.model.Purchase;
+import main.model.Rent;
 import main.model.Dvd;
+import main.model.Marketplace;
 import main.model.SpecialOffer;
 import main.model.User;
 import main.repository.DvdRepository;
+import main.repository.MarketplaceRepository;
 import main.repository.PurchaseRepository;
 import main.repository.SpecialOfferRepository;
 import main.repository.UserRepository;
@@ -32,6 +35,9 @@ public class PurchaseService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private MarketplaceRepository marketplaceRepository;
 	
 	public Boolean add(PurchaseDTO dto) {
 		Purchase purchase = new Purchase();
@@ -82,6 +88,30 @@ public class PurchaseService {
         for (Purchase p: purchaseRepository.findAll()) {
         	if(p.getUser().equals(userRepository.findById(id).get())) {
         		purchases.add(p);
+        	}
+        }
+        return purchases;
+    }
+	
+	public ArrayList<Purchase> findByMarketplaceId(Long id){
+        ArrayList<Purchase> purchases = new ArrayList<Purchase>();
+        Marketplace marketplace = marketplaceRepository.findById(id).get();
+        for (Dvd d: marketplace.getDvds()) {
+        	for(Purchase p: purchaseRepository.findAll()) {
+        		if(p.getDvd() != null) {
+        			if(d.getId().equals(p.getDvd().getId())) {
+            			purchases.add(p);
+            		}
+        		}
+        	}
+        }
+        for (SpecialOffer so: marketplace.getSpecialOffers()) {
+        	for(Purchase p: purchaseRepository.findAll()) {
+        		if(p.getSpecialOffer() != null) {
+        			if(so.getId().equals(p.getSpecialOffer().getId())) {
+            			purchases.add(p);
+            		}
+        		}
         	}
         }
         return purchases;

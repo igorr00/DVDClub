@@ -17,39 +17,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import main.dto.PurchaseDTO;
-import main.model.Purchase;
-import main.service.PurchaseService;
+import main.dto.RentDTO;
+import main.model.Rent;
+import main.model.RentStatus;
+import main.service.RentService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(value = "purchase")
-public class PurchaseController {
+@RequestMapping(value = "rent")
+public class RentController {
 
 	@Autowired
-	private PurchaseService purchaseService;
+	private RentService rentService;
 	
 	@PostMapping("/add")
-	public ResponseEntity<Purchase> add(@RequestBody PurchaseDTO dto) throws MessagingException, UnsupportedEncodingException {
+	public ResponseEntity<Rent> add(@RequestBody RentDTO dto) throws MessagingException, UnsupportedEncodingException {
 		
-		if(purchaseService.add(dto)) {
+		if(rentService.add(dto)) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@GetMapping("/getAll")
-    public @ResponseBody ArrayList<Purchase> getAll(){
-		return purchaseService.findAll();
+    public @ResponseBody ArrayList<Rent> getAll(){
+		return rentService.findAll();
 	}
 	
 	@GetMapping("/getByUserId")
-    public @ResponseBody ArrayList<Purchase> getByUserId(@Param("id") Long id){
-		return purchaseService.findByUserId(id);
+    public @ResponseBody ArrayList<Rent> getByUserId(@Param("id") Long id){
+		return rentService.findByUserId(id);
 	}
 	
 	@GetMapping("/getByMarketplaceId")
-    public @ResponseBody ArrayList<Purchase> getByMarketplaceId(@Param("id") Long id){
-		return purchaseService.findByMarketplaceId(id);
+    public @ResponseBody ArrayList<Rent> getByMarketplaceId(@Param("id") Long id){
+		return rentService.findByMarketplaceId(id);
+	}
+	
+	@PostMapping("/changeStatus")
+    public @ResponseBody Boolean getByMarketplaceId(@Param("id") Long id, @Param("status") RentStatus status){
+		return rentService.changeStatus(id, status);
 	}
 }

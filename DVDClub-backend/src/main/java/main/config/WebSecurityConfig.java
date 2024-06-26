@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/specialOffer/**").permitAll();
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/rating/**").permitAll();
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/purchase/**").permitAll();
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/rent/**").permitAll();
 	}
 	
 }
