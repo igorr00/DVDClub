@@ -1,0 +1,39 @@
+<mat-card fxFlex class="content">
+    <mat-card-title>
+        <h2>My Rents</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="dvd">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Product </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.dvd.film.name}} ({{rent.dvd.film.year}})</td>
+            </ng-container>
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Price </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.dvd.priceRent}} rsd</td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Date </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.date | date:'yyyy-MM-dd'}}</td>
+            </ng-container>
+            <ng-container matColumnDef="due">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Due </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.due | date:'yyyy-MM-dd'}}</td>
+            </ng-container>
+            <ng-container matColumnDef="returned">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Date Returned </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.dateReturned | date:'yyyy-MM-dd'}}</td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="cell"> Status </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.status}}</td>
+            </ng-container>
+            <ng-container matColumnDef="user">
+                <th mat-header-cell *matHeaderCellDef class="cell"> User </th>
+                <td mat-cell *matCellDef="let rent" class="cell">{{rent.user.name}} {{rent.user.surname}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

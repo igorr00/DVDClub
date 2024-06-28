@@ -20,6 +20,10 @@ export class PurchasesService {
     return this.http.get<Purchase[]>(this.apiHost + 'purchase/getByUserId?id=' + id, {headers: this.headers});
   }
 
+  getByMarketplaceId(id: any): Observable<Purchase[]> {
+    return this.http.get<Purchase[]>(this.apiHost + 'purchase/getByMarketplaceId?id=' + id, {headers: this.headers});
+  }
+
   add(purchaseDTO: PurchaseDTO): Observable<any> {
     return this.http.post<any>(this.apiHost + 'purchase/add', purchaseDTO, {headers: this.headers});
   }

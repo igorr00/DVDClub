@@ -55,7 +55,7 @@ public class RentController {
 	}
 	
 	@PostMapping("/changeStatus")
-    public @ResponseBody Boolean getByMarketplaceId(@Param("id") Long id, @Param("status") RentStatus status){
+    public @ResponseBody Boolean changeStatus(@Param("id") Long id, @Param("status") RentStatus status){
 		return rentService.changeStatus(id, status);
 	}
 }

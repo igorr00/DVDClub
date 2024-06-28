@@ -37,6 +37,11 @@ import { RatingAddComponent } from './dvdclub/rating-add/rating-add.component';
 import { RatingsComponent } from './dvdclub/ratings/ratings.component';
 import { RatingEditComponent } from './dvdclub/rating-edit/rating-edit.component';
 import { PurchasesComponent } from './dvdclub/purchases/purchases.component';
+import { PurchasesManagerComponent } from './dvdclub/purchases-manager/purchases-manager.component';
+import { RentsManagerComponent } from './dvdclub/rents-manager/rents-manager.component';
+import { RentsCustomerComponent } from './dvdclub/rents-customer/rents-customer.component';
+import { NewsCustomerComponent } from './dvdclub/news-customer/news-customer.component';
+import { RentAddComponent } from './dvdclub/rent-add/rent-add.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -74,7 +79,12 @@ const routes: Routes = [
   { path: 'rating-add', component: RatingAddComponent },
   { path: 'ratings', component: RatingsComponent },
   { path: 'rating-edit', component: RatingEditComponent },
-  { path: 'purchases', component: PurchasesComponent }
+  { path: 'purchases', component: PurchasesComponent },
+  { path: 'purchases-manager', component: PurchasesManagerComponent },
+  { path: 'rents-manager', component: RentsManagerComponent },
+  { path: 'rents-customer', component: RentsCustomerComponent },
+  { path: 'news-customer', component: NewsCustomerComponent },
+  { path: 'rent-add', component: RentAddComponent }
 ];
 
 @NgModule({

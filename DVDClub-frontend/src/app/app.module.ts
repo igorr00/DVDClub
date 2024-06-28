@@ -64,6 +64,11 @@ import { RatingAddComponent } from './dvdclub/rating-add/rating-add.component';
 import { RatingsComponent } from './dvdclub/ratings/ratings.component';
 import { RatingEditComponent } from './dvdclub/rating-edit/rating-edit.component';
 import { PurchasesComponent } from './dvdclub/purchases/purchases.component';
+import { PurchasesManagerComponent } from './dvdclub/purchases-manager/purchases-manager.component';
+import { RentsManagerComponent } from './dvdclub/rents-manager/rents-manager.component';
+import { RentsCustomerComponent } from './dvdclub/rents-customer/rents-customer.component';
+import { NewsCustomerComponent } from './dvdclub/news-customer/news-customer.component';
+import { RentAddComponent } from './dvdclub/rent-add/rent-add.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +108,12 @@ import { PurchasesComponent } from './dvdclub/purchases/purchases.component';
     RatingAddComponent,
     RatingsComponent,
     RatingEditComponent,
-    PurchasesComponent
+    PurchasesComponent,
+    PurchasesManagerComponent,
+    RentsManagerComponent,
+    RentsCustomerComponent,
+    NewsCustomerComponent,
+    RentAddComponent
   ],
   imports: [
     CommonModule,

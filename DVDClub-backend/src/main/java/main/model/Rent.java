@@ -22,9 +22,6 @@ public class Rent {
 	@Column(name = "rentDate", nullable = false)
 	private LocalDate date;
 	
-	@Column(name = "rentTime", nullable = false)
-	private LocalTime time;
-	
 	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     private User user;
 	
@@ -37,9 +34,6 @@ public class Rent {
 	@Column(name = "rentDateReturned")
 	private LocalDate dateReturned;
 	
-	@Column(name = "rentTimeReturned")
-	private LocalTime timeReturned;
-	
 	@Column(name = "rentStatus", nullable = false)
 	private RentStatus status;
 
@@ -47,17 +41,14 @@ public class Rent {
 		super();
 	}
 
-	public Rent(Long id, LocalDate date, LocalTime time, User user, Dvd dvd, LocalDate due, LocalDate dateReturned,
-			LocalTime timeReturned, RentStatus status) {
+	public Rent(Long id, LocalDate date, User user, Dvd dvd, LocalDate due, LocalDate dateReturned, RentStatus status) {
 		super();
 		this.id = id;
 		this.date = date;
-		this.time = time;
 		this.user = user;
 		this.dvd = dvd;
 		this.due = due;
 		this.dateReturned = dateReturned;
-		this.timeReturned = timeReturned;
 		this.status = status;
 	}
 
@@ -75,14 +66,6 @@ public class Rent {
 
 	public void setDate(LocalDate date) {
 		this.date = date;
-	}
-
-	public LocalTime getTime() {
-		return time;
-	}
-
-	public void setTime(LocalTime time) {
-		this.time = time;
 	}
 
 	public User getUser() {
@@ -115,14 +98,6 @@ public class Rent {
 
 	public void setDateReturned(LocalDate dateReturned) {
 		this.dateReturned = dateReturned;
-	}
-
-	public LocalTime getTimeReturned() {
-		return timeReturned;
-	}
-
-	public void setTimeReturned(LocalTime timeReturned) {
-		this.timeReturned = timeReturned;
 	}
 
 	public RentStatus getStatus() {

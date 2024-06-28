@@ -11,9 +11,13 @@
         <li *ngIf="loggedUserRole === 'MarketingManager'" class="nav-item"><a class="nav-link" routerLink="news">News</a></li>
         <li *ngIf="loggedUserRole === 'SalesManager'" class="nav-item"><a class="nav-link" routerLink="dvds-manager">Dvds</a></li>
         <li *ngIf="loggedUserRole === 'SalesManager'" class="nav-item"><a class="nav-link" routerLink="specialoffers-manager">Special Offers</a></li>
+        <li *ngIf="loggedUserRole === 'SalesManager'" class="nav-item"><a class="nav-link" routerLink="purchases-manager">Purchases</a></li>
+        <li *ngIf="loggedUserRole === 'SalesManager'" class="nav-item"><a class="nav-link" routerLink="rents-manager">Rents</a></li>
         <li *ngIf="loggedUserRole === 'Customer'" class="nav-item"><a class="nav-link" routerLink="marketplaces-customer">Marketplaces</a></li>
         <li *ngIf="loggedUserRole === 'Customer'" class="nav-item"><a class="nav-link" routerLink="ratings">My Ratings</a></li>
         <li *ngIf="loggedUserRole === 'Customer'" class="nav-item"><a class="nav-link" routerLink="purchases">My Purchases</a></li>
+        <li *ngIf="loggedUserRole === 'Customer'" class="nav-item"><a class="nav-link" routerLink="rents-customer">My Rents</a></li>
+        <li *ngIf="loggedUserRole === 'Customer'" class="nav-item"><a class="nav-link" routerLink="news-customer">News</a></li>
         <li *ngIf="loggedUserRole === ''" id="nav-login"(click)="logout()">Login</li>
         <li *ngIf="loggedUserRole !== ''" id="nav-login"(click)="logout()">Logout</li>
       </ul>

@@ -36,8 +36,7 @@ public class RentService {
 	
 	public Boolean add(RentDTO dto) {
 		Rent rent = new Rent();
-		rent.setDate(LocalDate.now());
-		rent.setTime(LocalTime.of(LocalTime.now().getHour(), LocalTime.now().getMinute()));
+		rent.setDate(dto.getDate());
 		
 		Optional<User> user = userRepository.findById(dto.getUserId());
 		if(user.isEmpty()) {
@@ -96,6 +95,9 @@ public class RentService {
 	public Boolean changeStatus(Long id, RentStatus status) {
 		Rent rent = rentRepository.findById(id).get();
 		rent.setStatus(status);
+		if(status.equals(RentStatus.Returned)) {
+			rent.setDate(LocalDate.now());
+		}
 		rentRepository.save(rent);
 		return true;
 	}

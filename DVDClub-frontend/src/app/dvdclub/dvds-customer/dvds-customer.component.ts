@@ -6,6 +6,8 @@ import { MarketplacesService } from '../services/marketplaces.service';
 import { PurchaseDTO } from '../dto/purchaseDTO';
 import { PurchasesService } from '../services/purchases.service';
 import { ToastrService } from 'ngx-toastr';
+import { RentDTO } from '../dto/rentDTO';
+import { RentsService } from '../services/rents.service';
 
 @Component({
   selector: 'app-dvds-customer',
@@ -20,9 +22,10 @@ export class DvdsCustomerComponent implements OnInit {
   public title = '';
   public isMember: boolean = false;
   public purchaseDTO: PurchaseDTO = new PurchaseDTO();
+  public rentDTO: RentDTO = new RentDTO();
 
   constructor(private router:Router, private marketplacesService: MarketplacesService,
-    private purchasesService: PurchasesService, private toastr: ToastrService) { }
+    private purchasesService: PurchasesService, private rentsService: RentsService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.marketplacesService.checkUser(localStorage.getItem('marketplaceId'), localStorage.getItem('loggedUserId')).subscribe({
@@ -52,11 +55,13 @@ export class DvdsCustomerComponent implements OnInit {
   }
 
   public rent(id: any){
+    localStorage.setItem('dvdId', id);
+    this.router.navigate(['rent-add']);
   }
 
   public filmView(id: any){
     localStorage.setItem('filmViewId', id);
-    window.location.href="film-view";
+    this.router.navigate(['film-view']);
   }
 
   public membership(){
