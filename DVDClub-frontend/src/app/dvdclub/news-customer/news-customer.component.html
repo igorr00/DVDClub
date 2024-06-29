@@ -1,1 +1,13 @@
-<p>news-customer works!</p>
+<mat-card elevation="5">
+    <mat-card-title>
+        <h2>News</h2>
+    </mat-card-title>
+    <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile *ngFor="let n of news; let i = index" [colspan]="4" [rowspan]="1">
+                <div class="custom-tile"><b>{{ n.title }}</b> {{n.date | date:'yyyy-MM-dd' }}<br>
+                {{ n.text }}</div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>

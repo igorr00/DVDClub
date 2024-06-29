@@ -13,7 +13,7 @@
     width: 100%; 
   }
   mat-card {
-    max-width: 900px; 
+    max-width: 1100px; 
     text-align: center;
     text-size-adjust: auto;
     margin-top: 2%;
@@ -49,7 +49,12 @@ p {
     margin-right: auto;
 }
 
-button{
+.editButton{
     background: #04AA6D;
+    color: white;
+}
+
+.deleteButton{
+    background: red;
     color: white;
 }

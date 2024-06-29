@@ -96,7 +96,12 @@ public class RentService {
 		Rent rent = rentRepository.findById(id).get();
 		rent.setStatus(status);
 		if(status.equals(RentStatus.Returned)) {
-			rent.setDate(LocalDate.now());
+			rent.setDateReturned(LocalDate.now());
+		}
+		if(status.equals(RentStatus.Returned) || status.equals(RentStatus.Rejected)) {
+			Dvd dvd = dvdRepository.findById(rent.getDvd().getId()).orElseThrow(() -> new RuntimeException("Dvd not found"));
+			dvd.setAvailable(true);
+			dvdRepository.save(dvd);
 		}
 		rentRepository.save(rent);
 		return true;

@@ -1,0 +1,9 @@
+h2 {
+    text-align: center;
+}
+
+.custom-tile {
+    position: absolute;
+    left: 5px;
+    font-size: large;
+}
