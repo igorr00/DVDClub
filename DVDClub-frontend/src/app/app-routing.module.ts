@@ -42,6 +42,7 @@ import { RentsManagerComponent } from './dvdclub/rents-manager/rents-manager.com
 import { RentsCustomerComponent } from './dvdclub/rents-customer/rents-customer.component';
 import { NewsCustomerComponent } from './dvdclub/news-customer/news-customer.component';
 import { RentAddComponent } from './dvdclub/rent-add/rent-add.component';
+import { SpecialoffersCustomerComponent } from './dvdclub/specialoffers-customer/specialoffers-customer.component';
 
 const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
@@ -84,7 +85,8 @@ const routes: Routes = [
   { path: 'rents-manager', component: RentsManagerComponent },
   { path: 'rents-customer', component: RentsCustomerComponent },
   { path: 'news-customer', component: NewsCustomerComponent },
-  { path: 'rent-add', component: RentAddComponent }
+  { path: 'rent-add', component: RentAddComponent },
+  { path: 'specialoffers-customer', component: SpecialoffersCustomerComponent }
 ];
 
 @NgModule({

@@ -139,4 +139,16 @@ public class MarketplaceService {
 		
 		return true;
 	}
+	public Boolean cancelMembership(Long marketplaceId, Long userId) {
+		if(!checkUser(marketplaceId, userId)) {
+			return false;
+		}
+		
+		Marketplace marketplace = marketplaceRepository.findById(marketplaceId).orElseThrow(() -> new RuntimeException("Marketplace not found"));
+		User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+		marketplace.getUsers().remove(user);
+		marketplaceRepository.save(marketplace);
+		
+		return true;
+	}
 }

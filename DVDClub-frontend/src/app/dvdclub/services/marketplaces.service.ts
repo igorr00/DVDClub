@@ -57,4 +57,8 @@ export class MarketplacesService {
   membership(marketplaceId: any, userId: any): Observable<any> {
     return this.http.post<any>(this.apiHost + 'marketplace/membership?marketplaceId=' + marketplaceId + '&userId=' + userId, {headers: this.headers});
   }
+
+  cancelMembership(marketplaceId: any, userId: any): Observable<any> {
+    return this.http.post<any>(this.apiHost + 'marketplace/cancelMembership?marketplaceId=' + marketplaceId + '&userId=' + userId, {headers: this.headers});
+  }
 }

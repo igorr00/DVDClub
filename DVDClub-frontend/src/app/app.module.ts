@@ -69,6 +69,7 @@ import { RentsManagerComponent } from './dvdclub/rents-manager/rents-manager.com
 import { RentsCustomerComponent } from './dvdclub/rents-customer/rents-customer.component';
 import { NewsCustomerComponent } from './dvdclub/news-customer/news-customer.component';
 import { RentAddComponent } from './dvdclub/rent-add/rent-add.component';
+import { SpecialoffersCustomerComponent } from './dvdclub/specialoffers-customer/specialoffers-customer.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { RentAddComponent } from './dvdclub/rent-add/rent-add.component';
     RentsManagerComponent,
     RentsCustomerComponent,
     NewsCustomerComponent,
-    RentAddComponent
+    RentAddComponent,
+    SpecialoffersCustomerComponent
   ],
   imports: [
     CommonModule,

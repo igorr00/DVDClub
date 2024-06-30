@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-import { Dvd } from '../model/dvd';
+import { SpecialOffer } from '../model/specialoffer';
 import { MarketplacesService } from '../services/marketplaces.service';
 import { PurchaseDTO } from '../dto/purchaseDTO';
 import { PurchasesService } from '../services/purchases.service';
 import { ToastrService } from 'ngx-toastr';
-import { RentDTO } from '../dto/rentDTO';
-import { RentsService } from '../services/rents.service';
 
 @Component({
-  selector: 'app-dvds-customer',
-  templateUrl: './dvds-customer.component.html',
-  styleUrls: ['./dvds-customer.component.css']
+  selector: 'app-specialoffers-customer',
+  templateUrl: './specialoffers-customer.component.html',
+  styleUrls: ['./specialoffers-customer.component.css']
 })
-export class DvdsCustomerComponent implements OnInit {
+export class SpecialoffersCustomerComponent implements OnInit {
 
-  public dataSource = new MatTableDataSource<Dvd>();
-  public displayedColumns = ['film', 'format', 'pricebuy', 'pricerent', 'buy'];
-  public dvds: Dvd[] = [];
+  public dataSource = new MatTableDataSource<SpecialOffer>();
+  public displayedColumns = ['name', 'startDate', 'endDate', 'price', 'buy'];
+  public specialOffers: SpecialOffer[] = [];
   public title = '';
   public isMember: boolean = false;
   public purchaseDTO: PurchaseDTO = new PurchaseDTO();
-  public rentDTO: RentDTO = new RentDTO();
 
   constructor(private router:Router, private marketplacesService: MarketplacesService,
-    private purchasesService: PurchasesService, private rentsService: RentsService, private toastr: ToastrService) { }
+    private purchasesService: PurchasesService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.marketplacesService.checkUser(localStorage.getItem('marketplaceId'), localStorage.getItem('loggedUserId')).subscribe({
@@ -38,30 +35,20 @@ export class DvdsCustomerComponent implements OnInit {
     this.marketplacesService.getById(localStorage.getItem('marketplaceId')).subscribe(res => {
       this.title = res.name;
       
-      this.marketplacesService.getAvailableDvds(localStorage.getItem('marketplaceId')).subscribe(res => {
-        this.dvds = res;
-        this.dataSource.data = this.dvds;
+      this.marketplacesService.getAvailableSpecialOffers(localStorage.getItem('marketplaceId')).subscribe(res => {
+        this.specialOffers = res;
+        this.dataSource.data = this.specialOffers;
       })
     })
   }
 
   public buy(id: any){
     this.purchaseDTO.userId = localStorage.getItem('loggedUserId');
-    this.purchaseDTO.dvdId = id;
+    this.purchaseDTO.specialOfferId = id;
     this.purchasesService.add(this.purchaseDTO).subscribe(res => {
       this.toastr.success('Dvd purchased', 'DVD Club');
       this.router.navigate(['purchases']);
     })
-  }
-
-  public rent(id: any){
-    localStorage.setItem('dvdId', id);
-    this.router.navigate(['rent-add']);
-  }
-
-  public filmView(id: any){
-    localStorage.setItem('filmViewId', id);
-    this.router.navigate(['film-view']);
   }
 
   public membership(){
@@ -70,7 +57,8 @@ export class DvdsCustomerComponent implements OnInit {
     })
   }
 
-  public specialOffers(){
-    this.router.navigate(['specialoffers-customer']);
+  public dvds(){
+    this.router.navigate(['dvds-customer']);
   }
+
 }

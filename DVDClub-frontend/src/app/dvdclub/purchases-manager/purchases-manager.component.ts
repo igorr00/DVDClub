@@ -26,7 +26,7 @@ export class PurchasesManagerComponent implements OnInit {
 
   public getProductName(purchase: Purchase){
     if(purchase.dvd){
-      return purchase.dvd.film.name + " " + "(" + purchase.dvd.film.year + ")"
+      return purchase.dvd.film.name + " " + "(" + purchase.dvd.film.year + ")" + " " + purchase.dvd.format
     }
     return purchase.specialOffer.name
   }
