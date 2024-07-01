@@ -25,8 +25,11 @@ public class SpecialOffer {
 	@Column(name = "specialOfferName", nullable = false)
 	private String name;
 	
+	@Column(name = "specialOfferDiscount", nullable = false)
+	private double discount;
+	
 	@Column(name = "specialOfferPrice", nullable = false)
-	private int price;
+	private double price;
 	
 	@Column(name = "specialOfferStartDate", nullable = false)
 	private LocalDate startDate;
@@ -46,10 +49,11 @@ public class SpecialOffer {
 		super();
 	}
 
-	public SpecialOffer(Long id, String name, int price, LocalDate startDate, LocalDate endDate, List<Dvd> dvds, boolean available) {
+	public SpecialOffer(Long id, String name, int discount, double price, LocalDate startDate, LocalDate endDate, List<Dvd> dvds, boolean available) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.discount = discount;
 		this.price = price;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -73,11 +77,19 @@ public class SpecialOffer {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 

@@ -33,7 +33,7 @@ public class SpecialOfferService {
 	public Boolean add(SpecialOfferDTO dto) {
 		SpecialOffer specialOffer = new SpecialOffer();
 		specialOffer.setName(dto.getName());
-		specialOffer.setPrice(dto.getPrice());
+		specialOffer.setDiscount(dto.getDiscount());
 		specialOffer.setStartDate(dto.getStartDate());
 		specialOffer.setEndDate(dto.getEndDate());
 		specialOffer.setAvailable(true);
@@ -48,6 +48,12 @@ public class SpecialOfferService {
 			}
 		}
 		specialOffer.setDvds(dvds);
+		double priceTemp = 0.0;
+		for(Dvd d: dvds) {
+			priceTemp += d.getPriceBuy();
+		}
+		priceTemp = (priceTemp * (1 - dto.getDiscount()/100.0));
+		specialOffer.setPrice(priceTemp);
 		specialOfferRepository.save(specialOffer);
 		
 		Marketplace marketplace = marketplaceRepository.findById(dto.getMarketplaceId()).orElseThrow(() -> new RuntimeException("Marketplace not found"));
@@ -75,6 +81,13 @@ public class SpecialOfferService {
 		{
 			return false;
 		}
+		
+		double priceTemp = 0.0;
+		for(Dvd d: specialOffer.getDvds()) {
+			priceTemp += d.getPriceBuy();
+		}
+		priceTemp = (priceTemp * (1 - specialOffer.getDiscount()/100.0));
+		specialOffer.setPrice(priceTemp);
 
 		specialOfferRepository.save(specialOffer);
 		return true;

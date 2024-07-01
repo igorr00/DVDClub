@@ -21,7 +21,7 @@ export class SpecialofferEditComponent implements OnInit {
   }
 
   submit(){
-    if(this.specialoffer.name == "" || this.specialoffer.price == 0 || this.specialoffer.startDate == null || this.specialoffer.endDate == null){
+    if(this.specialoffer.name == "" || this.specialoffer.discount == 0 || this.specialoffer.startDate == null || this.specialoffer.endDate == null){
         this.showError('Fill out all fields.', 'DVD Club');
         return;   
       }

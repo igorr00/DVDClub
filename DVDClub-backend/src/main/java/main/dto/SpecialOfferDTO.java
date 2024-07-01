@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class SpecialOfferDTO {
 
 	private String name;
-	private int price;
+	private double discount;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private Long[] dvdIds;
@@ -15,10 +15,10 @@ public class SpecialOfferDTO {
 		super();
 	}
 
-	public SpecialOfferDTO(String name, int price, LocalDate startDate, LocalDate endDate, Long[] dvdIds, Long marketplaceId) {
+	public SpecialOfferDTO(String name, double discount, LocalDate startDate, LocalDate endDate, Long[] dvdIds, Long marketplaceId) {
 		super();
 		this.name = name;
-		this.price = price;
+		this.discount = discount;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.dvdIds = dvdIds;
@@ -33,12 +33,12 @@ public class SpecialOfferDTO {
 		this.name = name;
 	}
 
-	public int getPrice() {
-		return price;
+	public double getDiscount() {
+		return discount;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setDiscount(double discount) {
+		this.discount = discount;
 	}
 
 	public LocalDate getStartDate() {

@@ -53,3 +53,7 @@ button{
     background: #04AA6D;
     color: white;
 }
+
+td {
+    color: red;
+}

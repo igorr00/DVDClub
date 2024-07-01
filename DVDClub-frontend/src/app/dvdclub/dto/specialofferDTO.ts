@@ -1,6 +1,6 @@
 export class SpecialOfferDTO{
     name: string;
-    price: number;
+    discount: number;
     startDate: Date;
     endDate: Date;
     dvdIds: number[];
@@ -8,7 +8,7 @@ export class SpecialOfferDTO{
 
     constructor(){
         this.name = '',
-        this.price = 0,
+        this.discount = 0,
         this.startDate = new Date(),
         this.endDate = new Date(),
         this.dvdIds = [],

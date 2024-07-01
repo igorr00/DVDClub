@@ -85,7 +85,7 @@ insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_
 insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '1080p Blu-Ray', 3000, 2000, 3, true);
 insert into public.dvd (dvd_id, dvd_format, dvd_price_buy, dvd_price_rent, film_film_id, available) values (default, '720p Blu-Ray', 2000, 1000, 3, true);
 
-insert into public.special_offer (special_offer_id, special_offer_name, special_offer_price, special_offer_start_date, special_offer_end_date, available) values (default, 'Dune (2021) 1080p + 720p combo', 3500, '2024-6-1', '2024-8-1', true);
+insert into public.special_offer (special_offer_id, special_offer_name, special_offer_discount, special_offer_price, special_offer_start_date, special_offer_end_date, available) values (default, 'Dune (2021) 1080p + 720p combo', 20.0, 3600.0, '2024-6-1', '2024-8-1', true);
 insert into public.special_offer_dvd (special_offer_id, dvd_id) values (1,2), (1,3);
 
 insert into public.marketplace_dvd (marketplace_id, dvd_id) values (1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8), (1,9);

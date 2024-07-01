@@ -29,7 +29,7 @@ export class SpecialofferAddComponent implements OnInit {
   }
 
   submit(){
-    if(this.specialofferDTO.name == "" || this.specialofferDTO.price == 0 || this.specialofferDTO.startDate == null || this.specialofferDTO.endDate == null
+    if(this.specialofferDTO.name == "" || this.specialofferDTO.discount == 0 || this.specialofferDTO.startDate == null || this.specialofferDTO.endDate == null
       || !this.specialofferDTO.dvdIds){
         this.showError('Fill out all fields.', 'DVD Club');
         return;   
