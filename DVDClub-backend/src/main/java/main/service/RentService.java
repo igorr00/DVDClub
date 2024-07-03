@@ -1,11 +1,18 @@
 package main.service;
 
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import main.dto.RentDTO;
@@ -33,6 +40,9 @@ public class RentService {
 	
 	@Autowired
 	private MarketplaceRepository marketplaceRepository;
+	
+	@Autowired
+    private JavaMailSender mailSender;
 	
 	public Boolean add(RentDTO dto) {
 		Rent rent = new Rent();
@@ -106,4 +116,48 @@ public class RentService {
 		rentRepository.save(rent);
 		return true;
 	}
+	
+	public void sendWarningEmail(Rent rent) throws MessagingException, UnsupportedEncodingException {
+	    String toAddress = rent.getUser().getEmail();
+	    String fromAddress = "Dvd-Email";
+	    String senderName = "DVDCLUB";
+	    String subject = "Your rent has not been returned";
+	    String content = "Dear [[name]],<br>"
+	            + "Your rent for [[film]] ([[year]]) [[format]] has not been returned!<br>"
+	            + "Please return it in a span of 3 days or we will be prompted to deactivate your account.<br>"
+	            + "Thank you,<br>"
+	            + "DVDCLUB.";
+	     
+	    MimeMessage message = mailSender.createMimeMessage();
+	    MimeMessageHelper helper = new MimeMessageHelper(message);
+	     
+	    helper.setFrom(fromAddress, senderName);
+	    helper.setTo(toAddress);
+	    helper.setSubject(subject);
+	     
+	    content = content.replace("[[name]]", rent.getUser().getName() + " " + rent.getUser().getSurname());
+	    content = content.replace("[[film]]", rent.getDvd().getFilm().getName());
+	    content = content.replace("[[year]]", String.valueOf(rent.getDvd().getFilm().getYear()));
+	    content = content.replace("[[format]]", rent.getDvd().getFormat());
+	     
+	    helper.setText(content, true);
+	     
+	    mailSender.send(message);
+	}
+	
+	@Scheduled(cron = "0 0 0 * * *")
+    public void checkRentsDue() throws UnsupportedEncodingException, MessagingException {
+		System.out.println("checkRentsDue fired");
+        LocalDate currentDate = LocalDate.now();
+        List<Rent> rents = rentRepository.findAll();
+
+        for (Rent r : rents) {
+            if (currentDate.equals(r.getDue().plusDays(1)) && r.getStatus().equals(RentStatus.Taken)) {
+                sendWarningEmail(r);
+            } else if (currentDate.equals(r.getDue().plusDays(3)) && r.getStatus().equals(RentStatus.Taken)) {
+            	r.getUser().setEnabled(false);
+            	userRepository.save(r.getUser());
+            }
+        }
+    }
 }
