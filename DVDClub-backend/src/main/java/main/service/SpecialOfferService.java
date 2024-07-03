@@ -1,20 +1,20 @@
 package main.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.ArrayUtils;
 
 import main.dto.SpecialOfferDTO;
 import main.model.SpecialOffer;
 import main.model.Dvd;
-import main.model.Film;
 import main.model.Marketplace;
 import main.repository.DvdRepository;
-import main.repository.FilmRepository;
 import main.repository.MarketplaceRepository;
 import main.repository.SpecialOfferRepository;
 
@@ -112,4 +112,18 @@ public class SpecialOfferService {
 		
 		specialOfferRepository.deleteById(id);
 	}
+	
+	@Scheduled(cron = "0 0 0 * * *")
+    public void checkAvailability() {
+		System.out.println("checkAvailability fired");
+        LocalDate currentDate = LocalDate.now();
+        List<SpecialOffer> specialOffers = specialOfferRepository.findAll();
+
+        for (SpecialOffer so : specialOffers) {
+            if (currentDate.isAfter(so.getEndDate())) {
+                so.setAvailable(false);
+                specialOfferRepository.save(so);
+            }
+        }
+    }
 }
