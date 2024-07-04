@@ -154,7 +154,7 @@ public class RentService {
         for (Rent r : rents) {
             if (currentDate.equals(r.getDue().plusDays(1)) && r.getStatus().equals(RentStatus.Taken)) {
                 sendWarningEmail(r);
-            } else if (currentDate.equals(r.getDue().plusDays(3)) && r.getStatus().equals(RentStatus.Taken)) {
+            } else if (currentDate.equals(r.getDue().plusDays(4)) && r.getStatus().equals(RentStatus.Taken)) {
             	r.getUser().setEnabled(false);
             	userRepository.save(r.getUser());
             }
